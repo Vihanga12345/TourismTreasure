@@ -128,21 +128,21 @@ const MonthlyEvents = () => {
         </motion.div>
         
         {/* Month Tabs */}
-        <div className="relative mb-8">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2 md:gap-3">
+        <div className="relative mb-8 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2">
             {monthlyData.map((month, index) => (
               <button
                 key={month.id}
                 onClick={() => handleTabClick(index)}
                 onMouseEnter={handleTabHover}
                 onMouseLeave={handleTabHoverEnd}
-                className={`px-3 py-2 md:px-4 md:py-2 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 min-w-[90px] ${
                   activeMonthIndex === index
-                    ? 'bg-primary text-white shadow-md transform scale-105'
+                    ? 'bg-primary text-white shadow-md'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {month.name}
+                {month.name.substring(0, 3)}
               </button>
             ))}
           </div>
