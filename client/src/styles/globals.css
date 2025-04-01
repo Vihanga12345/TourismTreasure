@@ -1,0 +1,188 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-shadow {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.pattern-bg {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1542272201-b1ca555f8505?q=80&w=1000&auto=format&fit=crop');
+  background-size: 200px;
+  background-repeat: repeat;
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.tab-active {
+  color: #1A5276;
+  border-bottom: 3px solid #F4D03F;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.7s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #F4D03F;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.bg-hero-pattern {
+  background-image: url('https://images.unsplash.com/photo-1518548419970-58a6138c7af2?q=80&w=2000&auto=format&fit=crop');
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Color variables - these match the Tailwind config from the design reference */
+:root {
+  --primary: 206 64% 29%;        /* #1A5276 Deep ocean blue */
+  --secondary: 49 89% 60%;        /* #F4D03F Vibrant saffron yellow */
+  --accent1: 145 60% 42%;         /* #27AE60 Tropical green */
+  --accent2: 28 80% 52%;          /* #E67E22 Sunset orange */
+  --dark: 206 69% 19%;            /* #0F3552 Darker blue */
+  --light: 0 0% 98%;              /* #F9F9F9 Light background */
+  
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* Font family assignments */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom utility classes for the theme colors */
+.bg-primary {
+  background-color: #1A5276;
+}
+
+.bg-secondary {
+  background-color: #F4D03F;
+}
+
+.bg-accent1 {
+  background-color: #27AE60;
+}
+
+.bg-accent2 {
+  background-color: #E67E22;
+}
+
+.bg-dark {
+  background-color: #0F3552;
+}
+
+.bg-light {
+  background-color: #F9F9F9;
+}
+
+.text-primary {
+  color: #1A5276;
+}
+
+.text-secondary {
+  color: #F4D03F;
+}
+
+.text-accent1 {
+  color: #27AE60;
+}
+
+.text-accent2 {
+  color: #E67E22;
+}
+
+.hover\:bg-dark:hover {
+  background-color: #0F3552;
+}
+
+.hover\:bg-yellow-400:hover {
+  background-color: #f6e05e;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.max-h-90vh {
+  max-height: 90vh;
+}
