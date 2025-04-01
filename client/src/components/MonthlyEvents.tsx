@@ -128,45 +128,23 @@ const MonthlyEvents = () => {
         </motion.div>
         
         {/* Month Tabs */}
-        <div className="relative mb-8 max-w-5xl mx-auto">
-          <div className="flex flex-col space-y-2">
-            {/* First row - January to August */}
-            <div className="flex justify-center gap-2">
-              {monthlyData.slice(0, 8).map((month, index) => (
-                <button
-                  key={month.id}
-                  onClick={() => handleTabClick(index)}
-                  onMouseEnter={handleTabHover}
-                  onMouseLeave={handleTabHoverEnd}
-                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[72px] ${
-                    activeMonthIndex === index
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {month.name.substring(0, 3)}
-                </button>
-              ))}
-            </div>
-            
-            {/* Second row - September to December */}
-            <div className="flex justify-center gap-2">
-              {monthlyData.slice(8, 12).map((month, index) => (
-                <button
-                  key={month.id}
-                  onClick={() => handleTabClick(index + 8)}
-                  onMouseEnter={handleTabHover}
-                  onMouseLeave={handleTabHoverEnd}
-                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[72px] ${
-                    activeMonthIndex === index + 8
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {month.name.substring(0, 3)}
-                </button>
-              ))}
-            </div>
+        <div className="relative mb-8 max-w-5xl mx-auto overflow-x-auto pb-2">
+          <div className="flex justify-center gap-1 min-w-max">
+            {monthlyData.map((month, index) => (
+              <button
+                key={month.id}
+                onClick={() => handleTabClick(index)}
+                onMouseEnter={handleTabHover}
+                onMouseLeave={handleTabHoverEnd}
+                className={`px-2 py-2 rounded-full text-xs font-medium transition-all duration-300 w-[60px] ${
+                  activeMonthIndex === index
+                    ? 'bg-primary text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {month.name.substring(0, 3)}
+              </button>
+            ))}
           </div>
           
           {/* Progress bar (only visible during auto-rotation) */}
