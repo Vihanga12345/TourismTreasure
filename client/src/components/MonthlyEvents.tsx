@@ -129,22 +129,44 @@ const MonthlyEvents = () => {
         
         {/* Month Tabs */}
         <div className="relative mb-8 max-w-5xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2">
-            {monthlyData.map((month, index) => (
-              <button
-                key={month.id}
-                onClick={() => handleTabClick(index)}
-                onMouseEnter={handleTabHover}
-                onMouseLeave={handleTabHoverEnd}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 min-w-[90px] ${
-                  activeMonthIndex === index
-                    ? 'bg-primary text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {month.name.substring(0, 3)}
-              </button>
-            ))}
+          <div className="flex flex-col space-y-2">
+            {/* First row - January to August */}
+            <div className="flex justify-center gap-2">
+              {monthlyData.slice(0, 8).map((month, index) => (
+                <button
+                  key={month.id}
+                  onClick={() => handleTabClick(index)}
+                  onMouseEnter={handleTabHover}
+                  onMouseLeave={handleTabHoverEnd}
+                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[72px] ${
+                    activeMonthIndex === index
+                      ? 'bg-primary text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {month.name.substring(0, 3)}
+                </button>
+              ))}
+            </div>
+            
+            {/* Second row - September to December */}
+            <div className="flex justify-center gap-2">
+              {monthlyData.slice(8, 12).map((month, index) => (
+                <button
+                  key={month.id}
+                  onClick={() => handleTabClick(index + 8)}
+                  onMouseEnter={handleTabHover}
+                  onMouseLeave={handleTabHoverEnd}
+                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[72px] ${
+                    activeMonthIndex === index + 8
+                      ? 'bg-primary text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {month.name.substring(0, 3)}
+                </button>
+              ))}
+            </div>
           </div>
           
           {/* Progress bar (only visible during auto-rotation) */}
