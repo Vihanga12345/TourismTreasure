@@ -80,10 +80,10 @@ const AboutUs = () => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 gap-4"
           >
-            <img src="https://images.unsplash.com/photo-1600697230088-4992c83b2804?q=80&w=2070&auto=format&fit=crop" alt="Sri Lanka Beach" className="rounded-xl shadow-lg h-48 object-cover w-full" />
-            <img src="https://images.unsplash.com/photo-1595411425732-e69c1aba47d8?q=80&w=2070&auto=format&fit=crop" alt="Sri Lanka Temple" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
-            <img src="https://images.unsplash.com/photo-1602941800793-73a0d3c73d56?q=80&w=2070&auto=format&fit=crop" alt="Sri Lanka Wildlife" className="rounded-xl shadow-lg h-48 object-cover w-full" />
-            <img src="https://images.unsplash.com/photo-1596402184362-7beec30ea5c2?q=80&w=2070&auto=format&fit=crop" alt="Sri Lanka Culture" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
+            <img src="/Pics/pexels-malindabandaralk-16508228.jpg" alt="Sri Lanka Beach" className="rounded-xl shadow-lg h-48 object-cover w-full" />
+            <img src="/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg" alt="Sri Lanka Temple" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
+            <img src="/Pics/pexels-eugene-dorosh-230277-739409.jpg" alt="Sri Lanka Nature" className="rounded-xl shadow-lg h-48 object-cover w-full" />
+            <img src="/Pics/pexels-hirusha-12144831.jpg" alt="Sri Lanka Culture" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
           </motion.div>
         </div>
         

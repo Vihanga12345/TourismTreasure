@@ -2,8 +2,17 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center">
-      <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center">
+      {/* Use the provided Sri Lanka image as background */}
+      <div className="absolute inset-0">
+        <img 
+          src="/Pics/pexels-tomas-malik-793526-1998439.jpg" 
+          alt="Sri Lanka Landscape" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-24">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}

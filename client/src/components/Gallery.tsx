@@ -5,14 +5,14 @@ const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   
   const galleryItems = [
-    { id: 1, category: 'beaches', image: 'https://images.unsplash.com/photo-1586861760473-bb3174951dd7?q=80&w=2070&auto=format&fit=crop', alt: 'Beach in Sri Lanka' },
-    { id: 2, category: 'wildlife', image: 'https://images.unsplash.com/photo-1500463959177-e0869687df26?q=80&w=2070&auto=format&fit=crop', alt: 'Elephant in Sri Lanka' },
-    { id: 3, category: 'temples', image: 'https://images.unsplash.com/photo-1578005226034-57e263212be9?q=80&w=2070&auto=format&fit=crop', alt: 'Temple in Sri Lanka' },
-    { id: 4, category: 'landscapes', image: 'https://images.unsplash.com/photo-1548019979-e49b7076f9d3?q=80&w=2071&auto=format&fit=crop', alt: 'Tea Plantation in Sri Lanka' },
-    { id: 5, category: 'beaches', image: 'https://images.unsplash.com/photo-1511602752689-faa2275f0e15?q=80&w=2071&auto=format&fit=crop', alt: 'Tropical Beach in Sri Lanka' },
-    { id: 6, category: 'wildlife', image: 'https://images.unsplash.com/photo-1547972827-8c3f6ead948c?q=80&w=2070&auto=format&fit=crop', alt: 'Leopard in Sri Lanka' },
-    { id: 7, category: 'temples', image: 'https://images.unsplash.com/photo-1624913503273-5f9c4e980dba?q=80&w=2070&auto=format&fit=crop', alt: 'Ancient Temple in Sri Lanka' },
-    { id: 8, category: 'landscapes', image: 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=2070&auto=format&fit=crop', alt: 'Coastal Landscape in Sri Lanka' }
+    { id: 1, category: 'beaches', image: '/Pics/pexels-malindabandaralk-16508228.jpg', alt: 'Beach in Sri Lanka' },
+    { id: 2, category: 'wildlife', image: '/Pics/pexels-roman-odintsov-4553621.jpg', alt: 'Wildlife in Sri Lanka' },
+    { id: 3, category: 'temples', image: '/Pics/pexels-akthar-595196.jpg', alt: 'Temple in Sri Lanka' },
+    { id: 4, category: 'landscapes', image: '/Pics/pexels-tomas-malik-793526-1998439.jpg', alt: 'Mountain Landscape in Sri Lanka' },
+    { id: 5, category: 'beaches', image: '/Pics/pexels-sandra-mack-1233541-2365974.jpg', alt: 'Tropical Beach in Sri Lanka' },
+    { id: 6, category: 'wildlife', image: '/Pics/pexels-gihans-18199788.jpg', alt: 'Sri Lankan Wildlife' },
+    { id: 7, category: 'temples', image: '/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg', alt: 'Temple Architecture in Sri Lanka' },
+    { id: 8, category: 'landscapes', image: '/Pics/pexels-eugene-dorosh-230277-739409.jpg', alt: 'Scenic Landscape in Sri Lanka' }
   ];
 
   const filteredItems = activeFilter === 'all' 
