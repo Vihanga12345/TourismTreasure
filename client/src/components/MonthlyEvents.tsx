@@ -120,7 +120,7 @@ const MonthlyEvents = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Sri Lankan Calendar</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Events Calendar</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="max-w-3xl mx-auto text-gray-600">
             Explore Sri Lanka's vibrant cultural events, festivals, and optimal travel seasons throughout the year.
@@ -129,7 +129,7 @@ const MonthlyEvents = () => {
         
         {/* Month Tabs */}
         <div className="relative mb-8">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-1">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2 md:gap-3">
             {monthlyData.map((month, index) => (
               <button
                 key={month.id}
@@ -142,7 +142,7 @@ const MonthlyEvents = () => {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {month.name.substring(0, 3)}
+                {month.name}
               </button>
             ))}
           </div>

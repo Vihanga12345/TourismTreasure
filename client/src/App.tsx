@@ -62,12 +62,12 @@ function App() {
         <Navbar />
         <Hero />
         <Services />
-        <MonthlyEvents />
         <TourPackages onBookNow={handleBookingModalOpen} />
         <CarRentals onRentNow={handleCarModalOpen} />
         <AboutUs />
         <Gallery />
         <Team />
+        <MonthlyEvents />
         <Testimonials />
         <Footer />
         <BookingModal 
