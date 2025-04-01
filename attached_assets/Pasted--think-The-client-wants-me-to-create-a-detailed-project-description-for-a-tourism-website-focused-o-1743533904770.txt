@@ -1,0 +1,368 @@
+<think>
+The client wants me to create a detailed project description for a tourism website focused on renting cars and tour packages. Let me organize all the requirements and create a comprehensive description:
+
+1. **Website Type**: Single-page React application for a tourism business in Sri Lanka offering car rentals and tour packages
+
+2. **Main Functionalities**:
+   - Two categories of services: Tour Packages and Car Rentals
+   - Two types of booking for tours: Pre-made packages and Customized packages
+   - Car rental bookings
+   - Email communication for all booking requests to admin
+
+3. **Features Required**:
+   - Tab-based navigation between Tour Packages and Car Rentals
+   - Pre-made tour packages with details and booking option
+   - Custom tour package request form
+   - Car rental listings with details and booking option
+   - Contact forms with validation
+   - Email functionality to send booking details to admin
+   - No login/register functionality required
+   - No backend database needed (frontend and email only)
+
+4. **UI/UX Requirements**:
+   - Visually appealing with Sri Lankan theme
+   - Smooth transitions and animations
+   - Scrolling effects
+   - Colorful backgrounds
+   - 3D elements with shadows
+   - Rounded corners
+   - Engaging and inviting design
+
+5. **Pages/Sections**:
+   - Landing page
+   - About Us
+   - Gallery
+   - Booking page (with tabs for tour packages and car rentals)
+   - Our Team
+   - Footer with contact information
+
+6. **Forms and Data Collection**:
+   - Pre-made package booking: Email, phone, message
+   - Custom tour request: Booking date/range, budget, vehicle preference, message, phone, country, email
+   - Car rental request: Car details, phone, email, country, additional message
+
+I'll create a detailed project description covering all these aspects.
+</think>
+
+# Sri Lanka Tourism Portal - Project Description
+
+## Project Overview
+
+This project involves developing a visually stunning, single-page React application for a Sri Lankan tourism business offering car rentals and tour packages. The website will focus on providing an immersive user experience with vibrant visuals, smooth animations, and intuitive booking processes. The application will primarily serve as a showcase and lead generation tool, allowing users to browse offerings and submit booking requests directly to the business administrator.
+
+## Core Functionality
+
+The website will operate without a backend database, instead utilizing email communication to forward booking requests to the administrator. The site will feature two main service categories: Tour Packages and Car Rentals, each with their own dedicated section and booking flows.
+
+## Technical Stack
+
+- **Frontend**: React.js with modern Hooks and functional components
+- **Styling**: CSS3 with SASS/SCSS, potentially using styled-components or Emotion
+- **Animation Libraries**: Framer Motion, React Spring, AOS (Animate On Scroll)
+- **Form Management**: Formik with Yup for validation
+- **Email Service**: EmailJS for client-side email sending
+- **UI Components**: Custom components with Material UI or Chakra UI for base elements
+- **Responsive Design**: Mobile-first approach using CSS Grid and Flexbox
+- **State Management**: React Context API (Redux not necessary for this scope)
+- **Build/Deployment**: Vite for development, Netlify/Vercel for hosting
+
+## Project Structure
+
+```
+sri-lanka-tourism/
+├── public/
+│   ├── images/
+│   │   ├── tours/
+│   │   ├── cars/
+│   │   ├── gallery/
+│   │   ├── team/
+│   │   └── backgrounds/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── AnimatedSection.jsx
+│   │   │   ├── BookingForm.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   └── ...
+│   │   ├── home/
+│   │   │   ├── Hero.jsx
+│   │   │   ├── FeaturedPackages.jsx
+│   │   │   ├── Testimonials.jsx
+│   │   │   └── ...
+│   │   ├── tours/
+│   │   │   ├── TourTabs.jsx
+│   │   │   ├── PackageCard.jsx
+│   │   │   ├── CustomRequestForm.jsx
+│   │   │   └── ...
+│   │   ├── cars/
+│   │   │   ├── CarCard.jsx
+│   │   │   ├── RentalForm.jsx
+│   │   │   └── ...
+│   │   ├── about/
+│   │   │   ├── AboutSection.jsx
+│   │   │   ├── TeamMember.jsx
+│   │   │   └── ...
+│   │   └── gallery/
+│   │       ├── GalleryGrid.jsx
+│   │       └── ...
+│   ├── hooks/
+│   │   ├── useScrollAnimation.js
+│   │   ├── useForm.js
+│   │   └── ...
+│   ├── context/
+│   │   └── BookingContext.js
+│   ├── utils/
+│   │   ├── validation.js
+│   │   ├── emailService.js
+│   │   └── ...
+│   ├── data/
+│   │   ├── tourPackages.js
+│   │   ├── vehicles.js
+│   │   ├── team.js
+│   │   └── ...
+│   ├── styles/
+│   │   ├── variables.scss
+│   │   ├── animations.scss
+│   │   ├── components/
+│   │   └── pages/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Detailed Features & Requirements
+
+### 1. Landing Page
+
+The landing page will create an immediate visual impact with:
+
+- **Hero Section**: Full-screen video or parallax image slider showcasing Sri Lankan landscapes
+- **Animated Text**: Revealing taglines and call-to-action buttons
+- **Scroll-Triggered Elements**: Content that fades/slides in as the user scrolls
+- **Service Highlights**: Animated cards showcasing tour packages and car rentals with hover effects
+- **Testimonials**: Carousel with customer reviews and ratings
+- **Quick Contact**: Floating button for immediate inquiry
+
+### 2. Tour Packages Section
+
+This section will be divided into two tabs:
+
+#### Pre-made Packages Tab:
+- Grid or carousel of visually appealing package cards with 3D hover effects
+- Each card displaying:
+  - High-quality image
+  - Package name
+  - Duration
+  - Key highlights (3-4 bullet points)
+  - Price range
+  - "Book Now" button
+- Clicking "Book Now" opens a modal with a form requesting:
+  - Full name
+  - Email address (validated)
+  - Phone number (validated with international format)
+  - Preferred date range
+  - Number of travelers
+  - Special requirements (optional text area)
+  - Submit button that sends package details and user information to admin
+
+#### Custom Tour Request Tab:
+- Interactive form with the following fields:
+  - Full name
+  - Email address (validated)
+  - Phone number (validated)
+  - Country (dropdown with flags)
+  - Travel dates (date range picker)
+  - Budget range (slider or predefined options)
+  - Group size
+  - Vehicle preferences (visual selection of options with quantity counter)
+  - Interests (multi-select checkboxes: wildlife, beaches, cultural sites, etc.)
+  - Accommodation preferences (dropdown)
+  - Additional requirements (text area)
+  - "Request Quote" button
+
+### 3. Car Rental Section
+
+- Filterable grid of vehicle cards with:
+  - High-quality images of each vehicle (potentially 360° view)
+  - Vehicle make and model
+  - Passenger capacity
+  - Key features (AC, transmission type, etc.)
+  - Price per kilometer/day
+  - Availability indicator
+  - "Rent Now" button
+- Clicking "Rent Now" opens a modal with:
+  - Vehicle details (pre-filled)
+  - Rental dates (date range picker)
+  - Pickup location (with map integration option)
+  - Driver required (yes/no toggle)
+  - Full name
+  - Email address
+  - Phone number
+  - Country
+  - ID/Passport number (with validation)
+  - Additional requirements
+  - Terms and conditions checkbox
+  - "Submit Request" button
+
+### 4. About Us Page
+
+- Parallax scrolling sections
+- Company story with timeline animation
+- Mission and vision statements with icon animations
+- Unique value propositions with counter animations
+- Awards and recognitions
+
+### 5. Our Team Section
+
+- Team member cards with:
+  - Professional photos
+  - Names and positions
+  - Brief bio
+  - Flip animation showing additional information on hover/click
+
+### 6. Gallery Page
+
+- Masonry-style photo grid with lazy loading
+- Categories for different destinations and experiences
+- Lightbox functionality for full-screen viewing
+- Subtle zoom/fade animations on hover
+- Option to filter by category
+
+### 7. Footer
+
+- Contact information
+- Quick links to all sections
+- Social media icons with hover animations
+- Newsletter subscription (optional)
+- Copyright information
+- Terms and privacy policy links
+
+## UI/UX Design Elements
+
+### Visual Theme
+
+- **Color Scheme**: 
+  - Primary: Deep ocean blue (#1A5276)
+  - Secondary: Vibrant saffron yellow (#F4D03F)
+  - Accents: Tropical green (#27AE60), sunset orange (#E67E22)
+  - Neutral backgrounds with colorful accents
+
+- **Typography**:
+  - Modern, clean sans-serif for body text (Poppins)
+  - Elegant serif or display font for headings (Playfair Display)
+  - Adequate contrast and readable sizes across devices
+
+- **Visual Elements**:
+  - Sri Lankan patterns and motifs as subtle background elements
+  - Natural textures (wood, stone, water)
+  - Authentic imagery of local experiences, landscapes, and culture
+
+### Animation & Interaction
+
+- **Scroll Effects**:
+  - Parallax backgrounds with multiple layers
+  - Reveal animations as content enters viewport
+  - Smooth transitions between sections
+  - Sticky elements for important calls-to-action
+
+- **Microinteractions**:
+  - Subtle hover states for all interactive elements
+  - Loading animations with Sri Lankan-themed elements
+  - Success/error feedback animations for forms
+  - Button click effects with ripples or scaling
+
+- **3D Elements**:
+  - Card elements with depth and shadows
+  - Subtle rotation effects on hover
+  - Layered backgrounds creating depth perception
+  - Floating elements with subtle movement
+
+### Responsive Considerations
+
+- Fluid transitions between breakpoints
+- Touch-optimized elements for mobile users
+- Simplified animations for lower-end devices
+- Accessible navigation for all screen sizes
+
+## Form Validation & Data Handling
+
+### Validation Rules
+
+- **Email**: Standard format validation with error messaging
+- **Phone Numbers**: International format with country code
+- **Required Fields**: Clear indication of mandatory information
+- **Date Validation**: Ensure future dates only, with minimum notice period
+- **Budget Ranges**: Minimum values where applicable
+
+### Email Communication
+
+- Three distinct email templates:
+  1. **Pre-made Package Request**: Template highlighting the selected package with user details
+  2. **Custom Tour Request**: Detailed breakdown of all custom requirements
+  3. **Car Rental Request**: Vehicle-specific information with rental details
+
+- Each email will include:
+  - Clear subject line indicating request type
+  - Customer contact information highlighted at top
+  - Time/date stamp of submission
+  - All form fields organized in a readable format
+  - Priority indicators for urgent requests (e.g., near-term dates)
+
+## User Flow
+
+1. **First Visit**:
+   - Land on home page with impactful visuals and animations
+   - Scroll through key offerings and unique selling points
+   - Navigate to service sections via scrolling or navigation
+
+2. **Exploring Options**:
+   - Browse pre-made packages or car options
+   - Click individual cards for detailed information
+   - Filter/search for specific options based on preferences
+
+3. **Making a Request**:
+   - Select desired package/vehicle or initiate custom request
+   - Complete relevant booking form with personal details
+   - Submit request and receive on-screen confirmation
+   - (Admin receives email notification with request details)
+
+4. **Follow-up Information**:
+   - Access about/gallery sections for additional confidence
+   - Find contact details in footer for direct communication
+   - Return to browsing other options
+
+## Development Approach & Timeline
+
+1. **Design Phase** (2 weeks):
+   - Wireframing and mockups
+   - Animation concepts and prototypes
+   - Color scheme and typography selection
+   - Component design system
+
+2. **Core Development** (4 weeks):
+   - Base structure and navigation
+   - Component development
+   - Form functionality and validation
+   - Email integration
+
+3. **Visual Enhancement** (2 weeks):
+   - Implementation of animations
+   - Refinement of visual elements
+   - Performance optimization for animations
+   - Responsive testing
+
+4. **Testing & Refinement** (1 week):
+   - Cross-browser/device testing
+   - Form validation testing
+   - Animation performance testing
+   - User feedback and adjustments
+
+## Conclusion
+
+This Sri Lanka Tourism Portal will deliver a visually impressive, user-friendly experience that effectively showcases tour packages and car rentals. The focus on smooth animations, engaging visuals, and intuitive booking processes will create a memorable user experience that reflects the vibrant nature of Sri Lankan tourism. The email-based inquiry system provides a straightforward method for converting site visitors into potential customers without requiring complex backend systems.
