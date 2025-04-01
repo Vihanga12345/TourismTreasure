@@ -10,6 +10,12 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      maxHeight: {
+        '90vh': '90vh',
+      },
+      backgroundColor: {
+        'dark': 'hsl(var(--primary) / 0.9)',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

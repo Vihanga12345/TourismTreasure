@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import MonthlyEvents from "./components/MonthlyEvents";
 import TourPackages from "./components/TourPackages";
 import CarRentals from "./components/CarRentals";
 import AboutUs from "./components/AboutUs";
@@ -61,6 +62,7 @@ function App() {
         <Navbar />
         <Hero />
         <Services />
+        <MonthlyEvents />
         <TourPackages onBookNow={handleBookingModalOpen} />
         <CarRentals onRentNow={handleCarModalOpen} />
         <AboutUs />
