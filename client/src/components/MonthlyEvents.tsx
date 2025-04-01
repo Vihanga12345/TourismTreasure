@@ -11,7 +11,6 @@ const MonthlyEvents = () => {
   const [progress, setProgress] = useState(0);
   const autoRotateTimeoutRef = useRef<number | null>(null);
   const progressIntervalRef = useRef<number | null>(null);
-  const userInteractionTimeoutRef = useRef<number | null>(null);
 
   const ROTATION_INTERVAL = 10000; // 10 seconds per month
   const PROGRESS_INTERVAL = 100; // Update progress every 100ms
@@ -25,31 +24,18 @@ const MonthlyEvents = () => {
   // Function to handle tab click
   const handleTabClick = (index: number) => {
     setActiveMonthIndex(index);
-    setIsAutoRotating(false);
+    // Do not stop auto-rotation, just reset progress
     resetProgress();
-    
-    // Clear existing timeout
-    if (userInteractionTimeoutRef.current) {
-      window.clearTimeout(userInteractionTimeoutRef.current);
-    }
-    
-    // Resume auto-rotation after 30 seconds of inactivity
-    userInteractionTimeoutRef.current = window.setTimeout(() => {
-      setIsAutoRotating(true);
-    }, 30000);
   };
 
   // Function to handle tab hover
   const handleTabHover = () => {
-    setIsAutoRotating(false);
+    // No longer stopping auto-rotation on hover
   };
 
   // Function to handle tab hover end
   const handleTabHoverEnd = () => {
-    // Only resume if we're not in a user interaction timeout period
-    if (!userInteractionTimeoutRef.current) {
-      setIsAutoRotating(true);
-    }
+    // No longer needed as we keep auto-rotation going
   };
 
   // Function to reset progress bar
@@ -59,40 +45,29 @@ const MonthlyEvents = () => {
 
   // Setup auto-rotation
   useEffect(() => {
-    if (isAutoRotating) {
-      // Clear any existing timeout
-      if (autoRotateTimeoutRef.current) {
-        window.clearTimeout(autoRotateTimeoutRef.current);
-      }
-      
-      // Set up the next rotation
-      autoRotateTimeoutRef.current = window.setTimeout(() => {
-        goToNextMonth();
-      }, ROTATION_INTERVAL);
-      
-      // Set up progress bar
-      if (progressIntervalRef.current) {
-        window.clearInterval(progressIntervalRef.current);
-      }
-      
-      progressIntervalRef.current = window.setInterval(() => {
-        setProgress((prevProgress) => {
-          const newProgress = prevProgress + (PROGRESS_INTERVAL / ROTATION_INTERVAL) * 100;
-          return newProgress > 100 ? 100 : newProgress;
-        });
-      }, PROGRESS_INTERVAL);
-    } else {
-      // Clear intervals and timeouts when not auto-rotating
-      if (autoRotateTimeoutRef.current) {
-        window.clearTimeout(autoRotateTimeoutRef.current);
-        autoRotateTimeoutRef.current = null;
-      }
-      
-      if (progressIntervalRef.current) {
-        window.clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
+    // Always keep auto-rotation running
+    
+    // Clear any existing timeout
+    if (autoRotateTimeoutRef.current) {
+      window.clearTimeout(autoRotateTimeoutRef.current);
     }
+    
+    // Set up the next rotation
+    autoRotateTimeoutRef.current = window.setTimeout(() => {
+      goToNextMonth();
+    }, ROTATION_INTERVAL);
+    
+    // Set up progress bar
+    if (progressIntervalRef.current) {
+      window.clearInterval(progressIntervalRef.current);
+    }
+    
+    progressIntervalRef.current = window.setInterval(() => {
+      setProgress((prevProgress) => {
+        const newProgress = prevProgress + (PROGRESS_INTERVAL / ROTATION_INTERVAL) * 100;
+        return newProgress > 100 ? 100 : newProgress;
+      });
+    }, PROGRESS_INTERVAL);
     
     // Cleanup on unmount
     return () => {
@@ -102,11 +77,8 @@ const MonthlyEvents = () => {
       if (progressIntervalRef.current) {
         window.clearInterval(progressIntervalRef.current);
       }
-      if (userInteractionTimeoutRef.current) {
-        window.clearTimeout(userInteractionTimeoutRef.current);
-      }
     };
-  }, [isAutoRotating, activeMonthIndex]);
+  }, [activeMonthIndex]);
 
   const activeMonth = monthlyData[activeMonthIndex];
 
