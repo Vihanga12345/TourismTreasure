@@ -32,23 +32,27 @@ const BookingForm: React.FC<BookingFormProps> = ({ packageName, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      await sendBookingEmail({
+      const result = await sendBookingEmail({
         ...formData,
         packageName,
         type: 'package'
       });
       
-      toast({
-        title: "Booking Request Submitted",
-        description: "We will contact you soon to confirm your booking.",
-        variant: "default",
-      });
-      onClose();
+      if (result.success) {
+        toast({
+          title: "Booking Request Submitted",
+          description: "We will contact you soon to confirm your booking.",
+          variant: "default",
+        });
+        onClose();
+      } else {
+        throw new Error(result.message);
+      }
     } catch (error) {
       console.error('Booking error:', error);
       toast({
         title: "Submission Error",
-        description: "There was a problem submitting your request. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
     } finally {

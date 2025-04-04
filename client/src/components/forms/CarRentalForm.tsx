@@ -41,23 +41,27 @@ const CarRentalForm: React.FC<CarRentalFormProps> = ({ carModel, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      await sendBookingEmail({
+      const result = await sendBookingEmail({
         ...formData,
         carModel,
         type: 'rental'
       });
       
-      toast({
-        title: "Car Rental Request Submitted",
-        description: "We will contact you soon to confirm your rental.",
-        variant: "default",
-      });
-      onClose();
+      if (result.success) {
+        toast({
+          title: "Car Rental Request Submitted",
+          description: "We will contact you soon to confirm your rental.",
+          variant: "default",
+        });
+        onClose();
+      } else {
+        throw new Error(result.message);
+      }
     } catch (error) {
       console.error('Rental error:', error);
       toast({
         title: "Submission Error",
-        description: "There was a problem submitting your request. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
     } finally {

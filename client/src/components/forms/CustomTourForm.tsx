@@ -40,36 +40,40 @@ const CustomTourForm = () => {
     setIsSubmitting(true);
 
     try {
-      await sendBookingEmail({
+      const result = await sendBookingEmail({
         ...formData,
-        interests,
+        interests: interests.join(', '), // Convert array to string for email
         type: 'custom'
       });
       
-      // Reset form after successful submission
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        country: '',
-        travelDates: '',
-        groupSize: '',
-        accommodation: '',
-        budget: '',
-        message: ''
-      });
-      setInterests([]);
-      
-      toast({
-        title: "Custom Tour Request Submitted",
-        description: "We will contact you soon to discuss your custom tour.",
-        variant: "default",
-      });
+      if (result.success) {
+        // Reset form after successful submission
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          country: '',
+          travelDates: '',
+          groupSize: '',
+          accommodation: '',
+          budget: '',
+          message: ''
+        });
+        setInterests([]);
+        
+        toast({
+          title: "Custom Tour Request Submitted",
+          description: "We will contact you soon to discuss your custom tour.",
+          variant: "default",
+        });
+      } else {
+        throw new Error(result.message);
+      }
     } catch (error) {
       console.error('Custom tour error:', error);
       toast({
         title: "Submission Error",
-        description: "There was a problem submitting your request. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
     } finally {

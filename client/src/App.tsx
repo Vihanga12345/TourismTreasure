@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
 import MonthlyEvents from "./components/MonthlyEvents";
 import TourPackages from "./components/TourPackages";
 import CarRentals from "./components/CarRentals";
@@ -61,7 +60,6 @@ function App() {
       <div className="font-sans text-gray-800 bg-light">
         <Navbar />
         <Hero />
-        <Services />
         <TourPackages onBookNow={handleBookingModalOpen} />
         <CarRentals onRentNow={handleCarModalOpen} />
         <AboutUs />

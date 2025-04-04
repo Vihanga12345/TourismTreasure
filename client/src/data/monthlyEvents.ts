@@ -25,8 +25,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Temperatures around 27-30°C (80-86°F) with minimal rainfall on the west and south coasts. The northeast experiences more rainfall.',
     travelTips: 'Perfect for beaches, wildlife safaris, and cultural sites. Ideal time to visit Galle, Bentota, and Mirissa. Book accommodations early as it\'s peak season.',
     images: [
-      '/Pics/pexels-malindabandaralk-16508228.jpg',
-      '/Pics/pexels-sandra-mack-1233541-2365974.jpg'
+      '/images/pexels-malindabandaralk-16508228.jpg',
+      '/images/pexels-tomas-malik-793526-1998439.jpg'
     ],
     events: [
       {
@@ -54,8 +54,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Warm and largely dry, with temperatures averaging 28-31°C (82-88°F) on the southern and western coasts. The Cultural Triangle remains pleasantly dry.',
     travelTips: 'Excellent time for beach holidays in the south and whale watching in Mirissa. Consider visiting the ancient cities of Anuradhapura and Polonnaruwa.',
     images: [
-      '/Pics/pexels-eugene-dorosh-230277-739409.jpg',
-      '/Pics/pexels-gihans-18199788.jpg'
+      '/images/pexels-eugene-dorosh-230277-739409.jpg',
+      '/images/pexels-gihans-18199788.jpg'
     ],
     events: [
       {
@@ -83,8 +83,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Temperatures rise to 29-32°C (84-90°F), especially inland. Conditions remain dry with occasional brief showers as the month progresses.',
     travelTips: 'A great time to visit any part of the island. Consider beach destinations like Trincomalee and Arugam Bay on the east coast, which begin their best season.',
     images: [
-      '/Pics/pexels-hirusha-12144831.jpg',
-      '/Pics/pexels-akthar-595196.jpg'
+      '/images/pexels-hirusha-12144831.jpg',
+      '/images/pexels-akthar-595196.jpg'
     ],
     events: [
       {
@@ -112,8 +112,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Hot and humid with temperatures of 30-33°C (86-91°F). The southwest monsoon approaches, bringing some afternoon showers. The east coast remains relatively dry.',
     travelTips: 'Experience the authentic culture during New Year celebrations. Beach conditions are still good early in the month. Cultural sites might be crowded during holiday periods.',
     images: [
-      '/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
-      '/Pics/pexels-roman-odintsov-4553621.jpg'
+      '/images/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
+      '/images/pexels-roman-odintsov-4553621.jpg'
     ],
     events: [
       {
@@ -141,8 +141,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Increasing rainfall in the southwest with temperatures around 29-32°C (84-90°F). The east coast becomes sunny and dry, making it ideal for beach activities.',
     travelTips: 'Consider shifting to the east coast beaches like Passikudah and Trincomalee. Hillcountry remains pleasant, and cultural sites are less crowded as peak season ends.',
     images: [
-      '/Pics/pexels-tomas-malik-793526-1998439.jpg',
-      '/Pics/pexels-malindabandaralk-16508228.jpg'
+      '/images/pexels-tomas-malik-793526-1998439.jpg',
+      '/images/pexels-malindabandaralk-16508228.jpg'
     ],
     events: [
       {
@@ -170,8 +170,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Southwest coast sees regular rainfall. Temperatures hover around 28-30°C (82-86°F). The east coast and Cultural Triangle remain dry and sunny.',
     travelTips: 'The ideal time to visit Arugam Bay for surfing, Trincomalee for beaches, and Yala National Park for wildlife. Lower hotel rates in the south and west provide good value.',
     images: [
-      '/Pics/pexels-gihans-18199788.jpg',
-      '/Pics/pexels-sandra-mack-1233541-2365974.jpg'
+      '/images/pexels-gihans-18199788.jpg',
+      '/images/pexels-sandra-mack-1233541-2365974.jpg'
     ],
     events: [
       {
@@ -199,8 +199,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest monsoon continues on the western and southern coasts. Temperatures average 27-30°C (80-86°F). The east remains dry and ideal for beach activities.',
     travelTips: 'Book well in advance for the Kandy Esala Perahera. The east coast beaches are at their best, while the famous elephant gathering at Minneriya offers incredible wildlife viewing.',
     images: [
-      '/Pics/pexels-akthar-595196.jpg',
-      '/Pics/pexels-hirusha-12144831.jpg'
+      '/images/pexels-akthar-595196.jpg',
+      '/images/pexels-hirusha-12144831.jpg'
     ],
     events: [
       {
@@ -228,8 +228,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Similar to July with monsoon rains affecting the southwest. Temperatures remain around 28-30°C (82-86°F). The east coast and Cultural Triangle stay sunny and dry.',
     travelTips: 'The best month to experience Sri Lanka\'s cultural heritage through festivals. Continue to focus on the east coast for beaches and the central and northern regions for cultural exploration.',
     images: [
-      '/Pics/pexels-eugene-dorosh-230277-739409.jpg',
-      '/Pics/pexels-roman-odintsov-4553621.jpg'
+      '/images/pexels-eugene-dorosh-230277-739409.jpg',
+      '/images/pexels-roman-odintsov-4553621.jpg'
     ],
     events: [
       {
@@ -257,8 +257,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest monsoon begins to weaken with reduced rainfall. Temperatures average 28-31°C (82-88°F). The east coast remains dry but will soon transition to its monsoon season.',
     travelTips: 'Last chance to enjoy the east coast beaches before their monsoon begins. Ideal conditions for wildlife viewing across most national parks. Slightly lower tourist numbers make for a more peaceful experience.',
     images: [
-      '/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
-      '/Pics/pexels-tomas-malik-793526-1998439.jpg'
+      '/images/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
+      '/images/pexels-tomas-malik-793526-1998439.jpg'
     ],
     events: [
       {
@@ -286,8 +286,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest sees decreasing rainfall as the monsoon ends. Temperatures average 28-30°C (82-86°F). The northeast starts to experience increasing showers toward the end of the month.',
     travelTips: 'A good time to visit cultural sites and the hill country. The western and southern beaches begin to become appealing again. Wildlife parks continue to offer excellent viewing opportunities.',
     images: [
-      '/Pics/pexels-malindabandaralk-16508228.jpg',
-      '/Pics/pexels-gihans-18199788.jpg'
+      '/images/pexels-malindabandaralk-16508228.jpg',
+      '/images/pexels-gihans-18199788.jpg'
     ],
     events: [
       {
@@ -315,8 +315,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest enjoys increasingly dry conditions with temperatures around 27-30°C (80-86°F). The northeast experiences regular rainfall. Short, heavy downpours can occur throughout the island.',
     travelTips: 'Begin exploring the southern and western beaches. The hill country is lush and scenic after the rains. Book accommodations in advance as peak season approaches.',
     images: [
-      '/Pics/pexels-sandra-mack-1233541-2365974.jpg',
-      '/Pics/pexels-hirusha-12144831.jpg'
+      '/images/pexels-sandra-mack-1233541-2365974.jpg',
+      '/images/pexels-hirusha-12144831.jpg'
     ],
     events: [
       {
@@ -344,8 +344,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest enjoys dry, sunny conditions with temperatures around 27-30°C (80-86°F). The northeast monsoon continues to bring rainfall to the east coast.',
     travelTips: 'Perfect for beach holidays in the south and west, with excellent conditions for water sports. Book well in advance as this is peak tourist season, especially around Christmas and New Year.',
     images: [
-      '/Pics/pexels-akthar-595196.jpg',
-      '/Pics/pexels-eugene-dorosh-230277-739409.jpg'
+      '/images/pexels-akthar-595196.jpg',
+      '/images/pexels-eugene-dorosh-230277-739409.jpg'
     ],
     events: [
       {
