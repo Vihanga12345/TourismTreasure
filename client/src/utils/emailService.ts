@@ -1,8 +1,12 @@
 import emailjs from '@emailjs/browser';
 
 // EmailJS configuration from environment variables
-const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
+const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID || 'service_f58tvso';
 const TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_KEY;
+
+// Initialize EmailJS with public key
+emailjs.init(PUBLIC_KEY);
 
 interface BookingData {
   type: 'package' | 'rental' | 'custom';
@@ -12,10 +16,11 @@ interface BookingData {
 export const sendBookingEmail = async (bookingData: BookingData) => {
   try {
     // Validate EmailJS configuration
-    if (!SERVICE_ID || !TEMPLATE_ID) {
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
       console.error('EmailJS configuration missing:', { 
         serviceId: SERVICE_ID ? 'Set' : 'Missing', 
-        templateId: TEMPLATE_ID ? 'Set' : 'Missing'
+        templateId: TEMPLATE_ID ? 'Set' : 'Missing',
+        publicKey: PUBLIC_KEY ? 'Set' : 'Missing'
       });
       return { 
         success: false, 
@@ -39,7 +44,8 @@ export const sendBookingEmail = async (bookingData: BookingData) => {
     const response = await emailjs.send(
       SERVICE_ID,
       TEMPLATE_ID,
-      emailData
+      emailData,
+      PUBLIC_KEY
     );
     
     console.log('Email successfully sent!', response);
