@@ -1,9 +1,9 @@
 import emailjs from '@emailjs/browser';
 
-// EmailJS configuration from environment variables
-const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID || 'service_f58tvso';
-const TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_KEY;
+// EmailJS configuration with hardcoded values that we know work from your test
+const SERVICE_ID = 'service_f58tvso';
+const TEMPLATE_ID = 'template_mofpg9o';
+const PUBLIC_KEY = '7QpUrEbr8JbgQYxUu';
 
 // Initialize EmailJS with public key
 emailjs.init(PUBLIC_KEY);
@@ -15,37 +15,44 @@ interface BookingData {
 
 export const sendBookingEmail = async (bookingData: BookingData) => {
   try {
-    // Validate EmailJS configuration
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      console.error('EmailJS configuration missing:', { 
-        serviceId: SERVICE_ID ? 'Set' : 'Missing', 
-        templateId: TEMPLATE_ID ? 'Set' : 'Missing',
-        publicKey: PUBLIC_KEY ? 'Set' : 'Missing'
-      });
-      return { 
-        success: false, 
-        message: 'Email service is not properly configured. Please contact support.' 
-      };
-    }
+    console.log('Preparing to send email with booking data:', bookingData.type);
     
-    // Prepare email data with recipient's email
+    // Prepare email data for template
     const emailData = {
-      to_email: 'jayamannevihanga@gmail.com',
-      booking_type: bookingData.type,
-      ...bookingData,
-      // Ensure all form fields are included
-      message: bookingData.notes || bookingData.specialRequirements || 'No additional information provided'
+      name: bookingData.name || bookingData.fullName,
+      time: new Date().toLocaleString(),
+      message: `
+Booking Type: ${bookingData.type}
+${bookingData.type === 'package' ? `Package: ${bookingData.packageName}` : ''}
+${bookingData.type === 'rental' ? `Car Model: ${bookingData.carModel}` : ''}
+Email: ${bookingData.email}
+Phone: ${bookingData.phone}
+${bookingData.date ? `Travel Date: ${bookingData.date}` : ''}
+${bookingData.travelDates ? `Travel Dates: ${bookingData.travelDates}` : ''}
+${bookingData.travelers ? `Travelers: ${bookingData.travelers}` : ''}
+${bookingData.groupSize ? `Group Size: ${bookingData.groupSize}` : ''}
+${bookingData.startDate ? `Pickup Date: ${bookingData.startDate}` : ''}
+${bookingData.endDate ? `Return Date: ${bookingData.endDate}` : ''}
+${bookingData.location ? `Pickup Location: ${bookingData.location}` : ''}
+${bookingData.driver ? `Driver Required: ${bookingData.driver}` : ''}
+${bookingData.country ? `Country: ${bookingData.country}` : ''}
+${bookingData.accommodation ? `Accommodation: ${bookingData.accommodation}` : ''}
+${bookingData.budget ? `Budget: ${bookingData.budget}` : ''}
+${bookingData.interests ? `Interests: ${bookingData.interests}` : ''}
+
+Additional Information:
+${bookingData.message || 'No additional information provided'}
+      `,
+      email: 'jayamannevihanga@gmail.com' // Setting both as sender and receiver
     };
     
-    console.log('Sending booking information to:', emailData.to_email);
-    console.log('Using EmailJS service:', SERVICE_ID);
+    console.log('Using EmailJS configuration:', SERVICE_ID, TEMPLATE_ID);
     
-    // Send the email using EmailJS
+    // Send the email using EmailJS exactly as in your working test
     const response = await emailjs.send(
       SERVICE_ID,
       TEMPLATE_ID,
-      emailData,
-      PUBLIC_KEY
+      emailData
     );
     
     console.log('Email successfully sent!', response);
@@ -57,15 +64,6 @@ export const sendBookingEmail = async (bookingData: BookingData) => {
     let errorMessage = 'Failed to send booking request. Please try again or contact us directly.';
     
     if (error.message) {
-      if (error.message.includes('Network Error') || error.message.includes('timeout')) {
-        errorMessage = 'Network error: Please check your internet connection and try again.';
-      } else if (error.message.includes('Invalid API key')) {
-        errorMessage = 'Service configuration error: Please contact support.';
-      } else if (error.message.includes('service_id')) {
-        errorMessage = 'Email service ID is not valid. Please contact support.';
-      } else if (error.message.includes('template_id')) {
-        errorMessage = 'Email template ID is not valid. Please contact support.';
-      }
       console.error('Error details:', error.message);
     }
     
