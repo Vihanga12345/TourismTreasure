@@ -32,7 +32,7 @@ const Navbar = () => {
                 transition={{ duration: 0.5 }}
                 className="font-serif font-bold text-2xl text-primary"
               >
-                Ceylon<span className="text-secondary">Explorer</span>
+                Exclusive<span className="text-secondary">Travels</span>
               </motion.span>
             </div>
           </div>

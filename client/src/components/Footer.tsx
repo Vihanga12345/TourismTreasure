@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="font-serif font-bold text-2xl mb-4">Ceylon<span className="text-secondary">Explorer</span></h3>
+            <h3 className="font-serif font-bold text-2xl mb-4">Exclusive<span className="text-secondary">Travels</span></h3>
             <p className="mb-4 text-gray-300">
               Your trusted partner for unforgettable Sri Lankan experiences. Discover the beauty of our island with our curated tour packages and reliable car rental services.
             </p>
@@ -25,6 +25,7 @@ const Footer = () => {
               <li><a href="#about" className="text-gray-300 hover:text-secondary transition-colors">About Us</a></li>
               <li><a href="#gallery" className="text-gray-300 hover:text-secondary transition-colors">Gallery</a></li>
               <li><a href="#team" className="text-gray-300 hover:text-secondary transition-colors">Our Team</a></li>
+              <li><a href="#monthly-events" className="text-gray-300 hover:text-secondary transition-colors">Monthly Events</a></li>
             </ul>
           </div>
           
@@ -57,7 +58,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-envelope mt-1 mr-3 text-secondary"></i>
-                <span>info@ceylonexplorer.com</span>
+                <span>info@exclusivetravels.com</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-clock mt-1 mr-3 text-secondary"></i>
@@ -70,7 +71,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} Ceylon Explorer. All rights reserved.
+              &copy; {new Date().getFullYear()} Exclusive Travels. All rights reserved.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>

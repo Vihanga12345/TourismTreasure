@@ -54,7 +54,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <a href="#services" className="text-white">
+        <a href="#tours" className="text-white">
           <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>

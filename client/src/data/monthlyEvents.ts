@@ -21,9 +21,9 @@ export const monthlyData: MonthData[] = [
   {
     id: 1,
     name: 'January',
-    description: 'January marks the beginning of the dry season in Sri Lanka\'s southwest. Celebrate the Tamil harvest festival Pongal and explore pristine beaches on the western and southern coasts.',
-    weather: 'Temperatures around 27-30°C (80-86°F) with minimal rainfall on the west and south coasts. The northeast experiences more rainfall.',
-    travelTips: 'Perfect for beaches, wildlife safaris, and cultural sites. Ideal time to visit Galle, Bentota, and Mirissa. Book accommodations early as it\'s peak season.',
+    description: 'January is perfect for beach holidays in Sri Lanka, with sunny skies along the southern and western coasts. Cultural festivals begin the new year, while wildlife and whale watching opportunities are abundant.',
+    weather: 'Dry and sunny in the south and west with temperatures around 30°C (86°F). Occasional rainfall in the northeast.',
+    travelTips: 'Perfect time for beach holidays in Bentota, Unawatuna, and Mirissa. Prime season for whale watching off the southern coast. Book accommodations in advance as this is peak tourist season.',
     images: [
       '/images/pexels-malindabandaralk-16508228.jpg',
       '/images/pexels-tomas-malik-793526-1998439.jpg'
@@ -31,28 +31,36 @@ export const monthlyData: MonthData[] = [
     events: [
       {
         id: 'jan-1',
-        name: 'Thai Pongal',
-        description: 'An important Tamil harvest festival dedicated to the Sun God, celebrated with colorful kolam designs and special rice dishes.',
-        date: 'Mid-January',
-        location: 'Throughout the country, especially in Tamil communities',
-        type: 'cultural'
-      },
-      {
-        id: 'jan-2',
-        name: 'Duruthu Perahera',
-        description: 'A spectacular procession commemorating Buddha\'s first visit to Sri Lanka, featuring dancers, drummers, and decorated elephants.',
+        name: 'Duruthu Perahera Festival',
+        description: 'Vibrant processions at Kelaniya Temple near Colombo celebrating Buddha\'s first visit to Sri Lanka.',
         date: 'January Full Moon',
         location: 'Kelaniya Temple near Colombo',
         type: 'religious'
+      },
+      {
+        id: 'jan-2',
+        name: 'Thai Pongal',
+        description: 'Colorful Hindu harvest festival celebrated by Tamil communities with beautiful kolam art and special rice dishes.',
+        date: 'Mid-January',
+        location: 'Tamil communities throughout Sri Lanka',
+        type: 'cultural'
+      },
+      {
+        id: 'jan-3',
+        name: 'Galle Literary Festival',
+        description: 'International literary event featuring renowned authors, held in the historic UNESCO World Heritage Galle Fort.',
+        date: 'Late January',
+        location: 'Galle Fort',
+        type: 'cultural'
       }
     ]
   },
   {
     id: 2,
     name: 'February',
-    description: 'February continues the dry season along the south and west coasts. The month brings the grand National Day celebrations and perfect conditions for beach activities and wildlife watching.',
-    weather: 'Warm and largely dry, with temperatures averaging 28-31°C (82-88°F) on the southern and western coasts. The Cultural Triangle remains pleasantly dry.',
-    travelTips: 'Excellent time for beach holidays in the south and whale watching in Mirissa. Consider visiting the ancient cities of Anuradhapura and Polonnaruwa.',
+    description: 'February offers the driest weather across Sri Lanka, making it ideal for exploring both cultural sites and wildlife areas. The spectacular Nawam Perahera in Colombo is a highlight of this month.',
+    weather: 'The driest month nationwide with abundant sunshine and temperatures averaging 28-32°C (82-90°F).',
+    travelTips: 'Excellent time to visit the Cultural Triangle (Anuradhapura, Polonnaruwa, Sigiriya). Peak season for whale watching continues in Mirissa. Book accommodations well in advance due to high demand.',
     images: [
       '/images/pexels-eugene-dorosh-230277-739409.jpg',
       '/images/pexels-gihans-18199788.jpg'
@@ -61,17 +69,25 @@ export const monthlyData: MonthData[] = [
       {
         id: 'feb-1',
         name: 'Independence Day',
-        description: 'Sri Lanka\'s National Day marking independence from British rule, celebrated with parades, cultural performances, and flag-hoisting ceremonies.',
+        description: 'National celebrations with military parades and cultural performances, particularly in Colombo.',
         date: 'February 4',
         location: 'Nationwide, with main celebrations in Colombo',
         type: 'cultural'
       },
       {
         id: 'feb-2',
-        name: 'Navam Perahera',
-        description: 'A magnificent temple procession featuring dancers, musicians, and over 50 elegantly costumed elephants.',
+        name: 'Nawam Maha Perahera',
+        description: 'Grand procession at Gangaramaya Temple in Colombo featuring decorated elephants, dancers, and drummers.',
         date: 'February Full Moon',
         location: 'Gangaramaya Temple, Colombo',
+        type: 'religious'
+      },
+      {
+        id: 'feb-3',
+        name: 'Navam Full Moon Poya',
+        description: 'Religious observances at Buddhist temples nationwide with special illuminations and ceremonies.',
+        date: 'February Full Moon',
+        location: 'Buddhist temples throughout Sri Lanka',
         type: 'religious'
       }
     ]
@@ -79,9 +95,9 @@ export const monthlyData: MonthData[] = [
   {
     id: 3,
     name: 'March',
-    description: 'March represents the culmination of the dry season in most parts of Sri Lanka. The Sinhala and Tamil New Year is approaching, and the comfortable weather makes it ideal for exploring the entire island.',
-    weather: 'Temperatures rise to 29-32°C (84-90°F), especially inland. Conditions remain dry with occasional brief showers as the month progresses.',
-    travelTips: 'A great time to visit any part of the island. Consider beach destinations like Trincomalee and Arugam Bay on the east coast, which begin their best season.',
+    description: 'March offers warm, dry weather throughout most of Sri Lanka, making it perfect for both cultural exploration and wildlife viewing. Water levels in reservoirs are low, making wildlife more visible at national parks.',
+    weather: 'Continues to be warm and dry throughout most of the country with temperatures averaging 29-33°C (84-91°F).',
+    travelTips: 'Excellent time for wildlife viewing at Wilpattu National Park as animals gather around water holes. The surfing season begins at Arugam Bay on the east coast. Visit Dambulla Cave Temples before the April crowds.',
     images: [
       '/images/pexels-hirusha-12144831.jpg',
       '/images/pexels-akthar-595196.jpg'
@@ -89,19 +105,27 @@ export const monthlyData: MonthData[] = [
     events: [
       {
         id: 'mar-1',
-        name: 'Maha Sivarathri',
-        description: 'An important Hindu festival dedicated to Lord Shiva, involving all-night vigils, fasting, and temple rituals.',
+        name: 'Maha Shivaratri',
+        description: 'Important Hindu festival dedicated to Lord Shiva with all-night vigils and rituals at temples nationwide.',
         date: 'March (date varies)',
         location: 'Hindu temples throughout the country',
         type: 'religious'
       },
       {
         id: 'mar-2',
-        name: 'Elephant Gathering',
-        description: 'One of the world\'s greatest wildlife spectacles begins as elephants start gathering at Minneriya and Kaudulla National Parks.',
-        date: 'Late March to October',
-        location: 'Minneriya and Kaudulla National Parks',
-        type: 'seasonal'
+        name: 'Medin Full Moon Poya',
+        description: 'Buddhist religious observances with temple visits and almsgiving.',
+        date: 'March Full Moon',
+        location: 'Buddhist temples nationwide',
+        type: 'religious'
+      },
+      {
+        id: 'mar-3',
+        name: 'International Cricket Matches',
+        description: 'Often hosted in Colombo, Galle, or Kandy, drawing cricket enthusiasts from around the world.',
+        date: 'Throughout March (varies)',
+        location: 'Major cricket stadiums',
+        type: 'cultural'
       }
     ]
   },
