@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div>
             <h3 className="font-serif font-bold text-2xl mb-4">Exclusive<span className="text-secondary">Travels</span></h3>
             <p className="mb-4 text-gray-300">
@@ -14,19 +14,6 @@ const Footer = () => {
               <a href="#" className="text-white hover:text-secondary transition-colors"><i className="fab fa-twitter"></i></a>
               <a href="#" className="text-white hover:text-secondary transition-colors"><i className="fab fa-youtube"></i></a>
             </div>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-xl mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-300 hover:text-secondary transition-colors">Home</a></li>
-              <li><a href="#tours" className="text-gray-300 hover:text-secondary transition-colors">Tour Packages</a></li>
-              <li><a href="#cars" className="text-gray-300 hover:text-secondary transition-colors">Car Rentals</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-secondary transition-colors">About Us</a></li>
-              <li><a href="#gallery" className="text-gray-300 hover:text-secondary transition-colors">Gallery</a></li>
-              <li><a href="#team" className="text-gray-300 hover:text-secondary transition-colors">Our Team</a></li>
-              <li><a href="#monthly-events" className="text-gray-300 hover:text-secondary transition-colors">Monthly Events</a></li>
-            </ul>
           </div>
           
           <div>
