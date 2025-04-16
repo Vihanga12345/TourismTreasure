@@ -73,11 +73,14 @@ const Footer = () => {
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} Exclusive Travels. All rights reserved.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Sitemap</a>
-            </div>
+            <a 
+              href="https://t3xlk.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-secondary text-sm transition-colors"
+            >
+              Developed by <span className="font-medium text-secondary">T3X</span>
+            </a>
           </div>
         </div>
       </div>

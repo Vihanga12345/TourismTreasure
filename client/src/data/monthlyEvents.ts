@@ -1,3 +1,28 @@
+import January1 from '../assets/Calander/January 1.jpg';
+import January2 from '../assets/Calander/January 2.jpeg';
+import February1 from '../assets/Calander/February 1.jpg';
+import February2 from '../assets/Calander/February 2.jpg';
+import March1 from '../assets/Calander/March 1.jpg';
+import March2 from '../assets/Calander/March 2.jpg';
+import April1 from '../assets/Calander/April 1.jpeg';
+import April2 from '../assets/Calander/April 2.jpg';
+import May1 from '../assets/Calander/May 1.jpeg';
+import May2 from '../assets/Calander/May 2.jpg';
+import June1 from '../assets/Calander/June 1.jpeg';
+import June2 from '../assets/Calander/June 2.jpeg';
+import July1 from '../assets/Calander/July 1.jpeg';
+import July2 from '../assets/Calander/July 2.jpg';
+import August1 from '../assets/Calander/August 1.jpg';
+import August2 from '../assets/Calander/August 2.jpg';
+import September1 from '../assets/Calander/September 1.jpg';
+import September2 from '../assets/Calander/September 2.jpg';
+import October1 from '../assets/Calander/Octomber 1.jpg';
+import October2 from '../assets/Calander/Octomber 2.jpeg';
+import November1 from '../assets/Calander/November 1.jpeg';
+import November2 from '../assets/Calander/November 2.jpg';
+import December1 from '../assets/Calander/December 1.jpg';
+import December2 from '../assets/Calander/December 2.jpeg';
+
 export interface MonthlyEvent {
   id: string;
   name: string;
@@ -25,8 +50,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Dry and sunny in the south and west with temperatures around 30°C (86°F). Occasional rainfall in the northeast.',
     travelTips: 'Perfect time for beach holidays in Bentota, Unawatuna, and Mirissa. Prime season for whale watching off the southern coast. Book accommodations in advance as this is peak tourist season.',
     images: [
-      '/images/pexels-malindabandaralk-16508228.jpg',
-      '/images/pexels-tomas-malik-793526-1998439.jpg'
+      January1,
+      January2
     ],
     events: [
       {
@@ -62,8 +87,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The driest month nationwide with abundant sunshine and temperatures averaging 28-32°C (82-90°F).',
     travelTips: 'Excellent time to visit the Cultural Triangle (Anuradhapura, Polonnaruwa, Sigiriya). Peak season for whale watching continues in Mirissa. Book accommodations well in advance due to high demand.',
     images: [
-      '/images/pexels-eugene-dorosh-230277-739409.jpg',
-      '/images/pexels-gihans-18199788.jpg'
+      February1,
+      February2
     ],
     events: [
       {
@@ -99,8 +124,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Continues to be warm and dry throughout most of the country with temperatures averaging 29-33°C (84-91°F).',
     travelTips: 'Excellent time for wildlife viewing at Wilpattu National Park as animals gather around water holes. The surfing season begins at Arugam Bay on the east coast. Visit Dambulla Cave Temples before the April crowds.',
     images: [
-      '/images/pexels-hirusha-12144831.jpg',
-      '/images/pexels-akthar-595196.jpg'
+      March1,
+      March2
     ],
     events: [
       {
@@ -136,8 +161,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Hot and humid with temperatures of 30-33°C (86-91°F). The southwest monsoon approaches, bringing some afternoon showers. The east coast remains relatively dry.',
     travelTips: 'Experience the authentic culture during New Year celebrations. Beach conditions are still good early in the month. Cultural sites might be crowded during holiday periods.',
     images: [
-      '/images/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
-      '/images/pexels-roman-odintsov-4553621.jpg'
+      April1,
+      April2
     ],
     events: [
       {
@@ -165,8 +190,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Increasing rainfall in the southwest with temperatures around 29-32°C (84-90°F). The east coast becomes sunny and dry, making it ideal for beach activities.',
     travelTips: 'Consider shifting to the east coast beaches like Passikudah and Trincomalee. Hillcountry remains pleasant, and cultural sites are less crowded as peak season ends.',
     images: [
-      '/images/pexels-tomas-malik-793526-1998439.jpg',
-      '/images/pexels-malindabandaralk-16508228.jpg'
+      May1,
+      May2
     ],
     events: [
       {
@@ -194,8 +219,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Southwest coast sees regular rainfall. Temperatures hover around 28-30°C (82-86°F). The east coast and Cultural Triangle remain dry and sunny.',
     travelTips: 'The ideal time to visit Arugam Bay for surfing, Trincomalee for beaches, and Yala National Park for wildlife. Lower hotel rates in the south and west provide good value.',
     images: [
-      '/images/pexels-gihans-18199788.jpg',
-      '/images/pexels-sandra-mack-1233541-2365974.jpg'
+      June1,
+      June2
     ],
     events: [
       {
@@ -223,8 +248,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest monsoon continues on the western and southern coasts. Temperatures average 27-30°C (80-86°F). The east remains dry and ideal for beach activities.',
     travelTips: 'Book well in advance for the Kandy Esala Perahera. The east coast beaches are at their best, while the famous elephant gathering at Minneriya offers incredible wildlife viewing.',
     images: [
-      '/images/pexels-akthar-595196.jpg',
-      '/images/pexels-hirusha-12144831.jpg'
+      July1,
+      July2
     ],
     events: [
       {
@@ -252,8 +277,8 @@ export const monthlyData: MonthData[] = [
     weather: 'Similar to July with monsoon rains affecting the southwest. Temperatures remain around 28-30°C (82-86°F). The east coast and Cultural Triangle stay sunny and dry.',
     travelTips: 'The best month to experience Sri Lanka\'s cultural heritage through festivals. Continue to focus on the east coast for beaches and the central and northern regions for cultural exploration.',
     images: [
-      '/images/pexels-eugene-dorosh-230277-739409.jpg',
-      '/images/pexels-roman-odintsov-4553621.jpg'
+      August1,
+      August2
     ],
     events: [
       {
@@ -281,8 +306,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest monsoon begins to weaken with reduced rainfall. Temperatures average 28-31°C (82-88°F). The east coast remains dry but will soon transition to its monsoon season.',
     travelTips: 'Last chance to enjoy the east coast beaches before their monsoon begins. Ideal conditions for wildlife viewing across most national parks. Slightly lower tourist numbers make for a more peaceful experience.',
     images: [
-      '/images/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg',
-      '/images/pexels-tomas-malik-793526-1998439.jpg'
+      September1,
+      September2
     ],
     events: [
       {
@@ -310,8 +335,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest sees decreasing rainfall as the monsoon ends. Temperatures average 28-30°C (82-86°F). The northeast starts to experience increasing showers toward the end of the month.',
     travelTips: 'A good time to visit cultural sites and the hill country. The western and southern beaches begin to become appealing again. Wildlife parks continue to offer excellent viewing opportunities.',
     images: [
-      '/images/pexels-malindabandaralk-16508228.jpg',
-      '/images/pexels-gihans-18199788.jpg'
+      October1,
+      October2
     ],
     events: [
       {
@@ -339,8 +364,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest enjoys increasingly dry conditions with temperatures around 27-30°C (80-86°F). The northeast experiences regular rainfall. Short, heavy downpours can occur throughout the island.',
     travelTips: 'Begin exploring the southern and western beaches. The hill country is lush and scenic after the rains. Book accommodations in advance as peak season approaches.',
     images: [
-      '/images/pexels-sandra-mack-1233541-2365974.jpg',
-      '/images/pexels-hirusha-12144831.jpg'
+      November1,
+      November2
     ],
     events: [
       {
@@ -368,8 +393,8 @@ export const monthlyData: MonthData[] = [
     weather: 'The southwest enjoys dry, sunny conditions with temperatures around 27-30°C (80-86°F). The northeast monsoon continues to bring rainfall to the east coast.',
     travelTips: 'Perfect for beach holidays in the south and west, with excellent conditions for water sports. Book well in advance as this is peak tourist season, especially around Christmas and New Year.',
     images: [
-      '/images/pexels-akthar-595196.jpg',
-      '/images/pexels-eugene-dorosh-230277-739409.jpg'
+      December1,
+      December2
     ],
     events: [
       {

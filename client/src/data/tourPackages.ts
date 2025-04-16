@@ -12,115 +12,339 @@ export interface TourPackage {
   image: string;
   highlights?: string[];
   isPopular?: boolean;
+  detailedItinerary?: string[][];
 }
+
+// Import the new package images
+import colomboGalleTour from '../assets/Packages/Colombo Galle Tour.jpg';
+import kandyNuwaraEliyaTour from '../assets/Packages/Kandy Nuwara Eliya Tour.jpg';
+import bentotaBeachEscape from '../assets/Packages/Bentota Beach Escape.jpg';
+import culturalTriangleTour from '../assets/Packages/Cultural Triangle Tour.jpeg';
+import hillCountryBeachTour from '../assets/Packages/Hill Country & Beach Tour.jpeg';
+import southCoastAdventure from '../assets/Packages/South Coast Adventure.jpg';
+import heritageWildlifeTour from '../assets/Packages/Heritage & Wildlife Tour.jpeg';
+import trainJourneyBeachTour from '../assets/Packages/Train Journey & Beach Tour.jpeg';
+import beachCulturalTour from '../assets/Packages/Beach & Cultural Tour.jpg';
+import natureAdventureTour from '../assets/Packages/Nature & Adventure Tour.jpg';
+import culturalSpiritualTour from '../assets/Packages/Cultural & Spiritual Tour.jpeg';
+import comprehensiveSriLankaTour from '../assets/Packages/Comprehensive Sri Lanka Tour.jpg';
 
 export const tourPackages: TourPackage[] = [
   {
     id: "1",
-    name: "Cultural Triangle Tour",
-    duration: "6 Days",
+    name: "3-Day Colombo Galle Tour",
+    duration: "3 Days",
     rating: 4.5,
     reviewCount: 32,
-    locations: "Anuradhapura, Sigiriya, Kandy",
+    locations: "Colombo, Galle, Unawatuna",
     groupSize: "2-6 people",
     season: "Available year-round",
-    price: 799,
+    price: 399,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1562253900-c432a0c4b2b3?q=80&w=2070&auto=format&fit=crop",
+    image: colomboGalleTour,
     highlights: [
-      "Visit ancient cities and UNESCO World Heritage sites",
-      "Climb the iconic Sigiriya Rock Fortress",
-      "Experience traditional cultural performances"
+      "Explore Colombo's historic landmarks",
+      "Visit the UNESCO-listed Galle Fort",
+      "Relax at beautiful Unawatuna Beach"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Explore Colombo's landmarks like Independence Square, Gangaramaya Temple, and the bustling Pettah Market."],
+      ["Day 2", "Travel to Galle to visit the UNESCO-listed Galle Fort, then relax at Unawatuna Beach."],
+      ["Day 3", "Return to Colombo for shopping or a city tour before departure."]
     ]
   },
   {
     id: "2",
-    name: "Beach Paradise Tour",
-    duration: "7 Days",
-    rating: 5,
+    name: "3-Day Kandy Nuwara Eliya Tour",
+    duration: "3 Days",
+    rating: 4.8,
     reviewCount: 48,
-    locations: "Bentota, Mirissa, Unawatuna",
+    locations: "Kandy, Nuwara Eliya, Colombo",
     groupSize: "2-8 people",
     season: "Best from Nov to Apr",
-    price: 899,
+    price: 449,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=2070&auto=format&fit=crop",
+    image: kandyNuwaraEliyaTour,
     highlights: [
-      "Relax on pristine white sandy beaches",
-      "Optional water sports and whale watching",
-      "Sunset beach dining experiences"
+      "Visit the Pinnawala Elephant Orphanage",
+      "Explore the sacred Temple of the Tooth Relic",
+      "Tour tea plantations in Nuwara Eliya"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Visit the Pinnawala Elephant Orphanage en route to Kandy; explore the Temple of the Tooth Relic and enjoy a cultural show."],
+      ["Day 2", "Proceed to Nuwara Eliya to tour tea plantations, Gregory Lake, and Hakgala Botanical Garden."],
+      ["Day 3", "Return to Colombo, visiting attractions like the National Museum and Galle Face Green."]
     ]
   },
   {
     id: "3",
-    name: "Wildlife Safari Tour",
-    duration: "5 Days",
-    rating: 4,
-    reviewCount: 27,
-    locations: "Yala, Udawalawe, Wilpattu",
+    name: "3-Day Bentota Beach Escape",
+    duration: "3 Days",
+    rating: 4.7,
+    reviewCount: 38,
+    locations: "Bentota, Madu River, Colombo",
     groupSize: "2-6 people",
     season: "Available year-round",
-    price: 749,
+    price: 379,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1609660546743-1f796d9c1ff6?q=80&w=2070&auto=format&fit=crop",
+    image: bentotaBeachEscape,
     highlights: [
-      "Spot leopards, elephants and hundreds of bird species",
-      "Experienced wildlife guides with 4x4 jeeps",
-      "Stay in eco-friendly lodges near national parks"
+      "Relax on the beautiful Bentota Beach",
+      "Experience the Madu River boat safari",
+      "Visit a local Turtle Hatchery Farm"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrive in Bentota and relax at the beach."],
+      ["Day 2", "Enjoy a Madu River boat safari and visit the Turtle Hatchery Farm."],
+      ["Day 3", "Travel to Colombo for a city tour before departure."]
     ]
   },
   {
     id: "4",
-    name: "Hill Country Expedition",
-    duration: "8 Days",
-    rating: 4.5,
-    reviewCount: 36,
-    locations: "Nuwara Eliya, Ella, Horton Plains",
+    name: "5-Day Cultural Triangle Tour",
+    duration: "5 Days",
+    rating: 4.9,
+    reviewCount: 56,
+    locations: "Dambulla, Sigiriya, Polonnaruwa, Kandy, Nuwara Eliya",
     groupSize: "2-8 people",
     season: "Best from Jan to May",
-    price: 999,
+    price: 799,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1592435318569-eec11bbe2be9?q=80&w=2070&auto=format&fit=crop",
+    image: culturalTriangleTour,
     highlights: [
-      "Scenic train journeys through tea plantations",
-      "Trek to World's End and Baker's Falls",
-      "Visit colonial-era tea factories and sample Ceylon tea"
+      "Explore ancient Buddhist cave temples at Dambulla",
+      "Climb the iconic Sigiriya Rock Fortress",
+      "Visit the sacred Temple of the Tooth Relic in Kandy"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Visit Dambulla Cave Temple and stay overnight in Sigiriya."],
+      ["Day 2", "Climb Sigiriya Rock Fortress and explore Polonnaruwa ancient city."],
+      ["Day 3", "Proceed to Kandy, visiting Matale Spice Garden and the Temple of the Tooth Relic."],
+      ["Day 4", "Travel to Nuwara Eliya to tour tea plantations and Gregory Lake."],
+      ["Day 5", "Return to Colombo for departure."]
     ]
   },
   {
     id: "5",
-    name: "Colombo City Explorer",
-    duration: "3 Days",
-    rating: 4,
-    reviewCount: 21,
-    locations: "Colombo, Negombo, Mount Lavinia",
-    groupSize: "1-10 people",
+    name: "5-Day Hill Country & Beach Tour",
+    duration: "5 Days",
+    rating: 4.6,
+    reviewCount: 42,
+    locations: "Kandy, Nuwara Eliya, Bentota, Colombo",
+    groupSize: "2-6 people",
     season: "Available year-round",
-    price: 349,
+    price: 749,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1489493512598-d08130f49bea?q=80&w=2071&auto=format&fit=crop",
+    image: hillCountryBeachTour,
     highlights: [
-      "Guided tours of historic colonial buildings",
-      "Shopping expeditions to local markets",
-      "Sri Lankan cuisine food tours and cooking classes"
+      "Experience the cultural richness of Kandy",
+      "Visit tea estates and waterfalls in Nuwara Eliya",
+      "Relax on the beautiful beaches of Bentota"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Explore Kandy's cultural sites."],
+      ["Day 2", "Visit Nuwara Eliya's tea estates and waterfalls."],
+      ["Day 3", "Travel to Bentota for beach activities."],
+      ["Day 4", "Enjoy water sports in Bentota."],
+      ["Day 5", "Return to Colombo for departure."]
     ]
   },
   {
     id: "6",
-    name: "Complete Sri Lanka Tour",
-    duration: "14 Days",
+    name: "5-Day South Coast Adventure",
+    duration: "5 Days",
+    rating: 4.8,
+    reviewCount: 51,
+    locations: "Galle, Mirissa, Yala, Ella, Colombo",
+    groupSize: "2-6 people",
+    season: "Best from Dec to Apr",
+    price: 829,
+    currency: "$",
+    image: southCoastAdventure,
+    highlights: [
+      "Explore the historic Galle Fort",
+      "Enjoy beautiful beaches and nightlife in Mirissa",
+      "Experience a wildlife safari in Yala National Park"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrive in Galle and explore the Galle Fort."],
+      ["Day 2", "Relax at Mirissa Beach and enjoy the nightlife."],
+      ["Day 3", "Visit Yala National Park for a wildlife safari."],
+      ["Day 4", "Travel to Ella to see Nine Arch Bridge and Little Adam's Peak."],
+      ["Day 5", "Return to Colombo for departure."]
+    ]
+  },
+  {
+    id: "7",
+    name: "7-Day Heritage & Wildlife Tour",
+    duration: "7 Days",
     rating: 5,
-    reviewCount: 59,
-    locations: "Island-wide comprehensive tour",
+    reviewCount: 64,
+    locations: "Anuradhapura, Mihintale, Sigiriya, Kandy, Nuwara Eliya, Yala, Mirissa",
+    groupSize: "2-8 people",
+    season: "Available year-round",
+    price: 1199,
+    currency: "$",
+    image: heritageWildlifeTour,
+    highlights: [
+      "Explore ancient ruins of Anuradhapura",
+      "Climb the iconic Sigiriya Rock Fortress",
+      "Experience exciting wildlife safari in Yala National Park"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Explore Anuradhapura's ancient ruins."],
+      ["Day 2", "Visit Mihintale and proceed to Sigiriya."],
+      ["Day 3", "Climb Sigiriya Rock and explore Dambulla Cave Temple."],
+      ["Day 4", "Travel to Kandy, visiting Matale Spice Garden en route."],
+      ["Day 5", "Proceed to Nuwara Eliya to tour tea plantations."],
+      ["Day 6", "Visit Yala National Park for a safari."],
+      ["Day 7", "Relax at Mirissa Beach before departure."]
+    ],
+    isPopular: true
+  },
+  {
+    id: "8",
+    name: "7-Day Train Journey & Beach Tour",
+    duration: "7 Days",
+    rating: 4.8,
+    reviewCount: 57,
+    locations: "Colombo, Kandy, Ella, Yala, Mirissa",
     groupSize: "2-6 people",
     season: "Best from Nov to Apr",
-    price: 1899,
+    price: 1099,
     currency: "$",
-    image: "https://images.unsplash.com/photo-1580742314333-2f6be0516adc?q=80&w=2067&auto=format&fit=crop",
+    image: trainJourneyBeachTour,
     highlights: [
-      "Experience all highlights of Sri Lanka in one trip",
-      "Balance of cultural, wildlife and beach experiences",
-      "Luxury accommodations throughout the journey"
+      "Experience Colombo's vibrant city life",
+      "Enjoy scenic train journey from Kandy to Ella",
+      "Relax on the beautiful beaches of Mirissa"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Explore Colombo's attractions."],
+      ["Day 2", "Travel to Kandy and visit the Temple of the Tooth Relic."],
+      ["Day 3", "Enjoy a scenic train ride to Ella."],
+      ["Day 4", "Visit Nine Arch Bridge and Little Adam's Peak."],
+      ["Day 5", "Travel to Yala National Park for a safari."],
+      ["Day 6", "Relax at Mirissa Beach."],
+      ["Day 7", "Return to Colombo for departure."]
+    ]
+  },
+  {
+    id: "9",
+    name: "7-Day Beach & Cultural Tour",
+    duration: "7 Days",
+    rating: 4.7,
+    reviewCount: 49,
+    locations: "Negombo, Sigiriya, Polonnaruwa, Kandy, Nuwara Eliya, Bentota",
+    groupSize: "2-6 people",
+    season: "Available year-round",
+    price: 999,
+    currency: "$",
+    image: beachCulturalTour,
+    highlights: [
+      "Relax on the beautiful beaches of Negombo and Bentota",
+      "Explore the ancient city of Polonnaruwa",
+      "Experience the cooler climate of Nuwara Eliya"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrive in Negombo and relax at the beach."],
+      ["Day 2", "Travel to Sigiriya to climb the rock fortress."],
+      ["Day 3", "Explore Polonnaruwa's ancient city."],
+      ["Day 4", "Proceed to Kandy and visit cultural sites."],
+      ["Day 5", "Travel to Nuwara Eliya to tour tea plantations."],
+      ["Day 6", "Relax at Bentota Beach."],
+      ["Day 7", "Return to Colombo for departure."]
+    ]
+  },
+  {
+    id: "10",
+    name: "10-Day Nature & Adventure Tour",
+    duration: "10 Days",
+    rating: 5,
+    reviewCount: 72,
+    locations: "Colombo, Kitulgala, Nuwara Eliya, Ella, Arugam Bay, Yala, Galle",
+    groupSize: "2-8 people",
+    season: "Best from Apr to Sep",
+    price: 1699,
+    currency: "$",
+    image: natureAdventureTour,
+    highlights: [
+      "Experience white-water rafting in Kitulgala",
+      "Hike to World's End at Horton Plains",
+      "Enjoy surfing at Arugam Bay"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrival in Colombo - Relax and explore the city's highlights: Galle Face Green, Colombo Lighthouse, and Arcade Independence Square."],
+      ["Day 2", "Colombo to Kitulgala - Travel to Kitulgala, the adventure capital of Sri Lanka. Go white-water rafting and explore caves and waterfalls."],
+      ["Day 3", "Kitulgala to Nuwara Eliya - Visit tea plantations and waterfalls on the way. Walk around Gregory Lake and enjoy the British colonial charm."],
+      ["Day 4", "Horton Plains & Train to Ella - Hike to World's End and Baker's Falls. Take the scenic train from Nanu Oya to Ella."],
+      ["Day 5", "Ella - Climb Little Adam's Peak, visit Nine Arches Bridge, and chill in cafes."],
+      ["Day 6", "Ella to Arugam Bay - Drive east to Arugam Bay, a laid-back surfer's paradise."],
+      ["Day 7", "Beach Day at Arugam Bay - Surf, swim, or just unwind by the beach."],
+      ["Day 8", "Arugam Bay to Yala - Transfer to Yala and go on an afternoon safari."],
+      ["Day 9", "Yala to Galle - Drive along the coast to Galle, explore the Galle Fort."],
+      ["Day 10", "Galle to Colombo for Departure - Option to stop at a turtle hatchery in Kosgoda on the way back."]
+    ],
+    isPopular: true
+  },
+  {
+    id: "11",
+    name: "10-Day Cultural & Spiritual Tour",
+    duration: "10 Days",
+    rating: 4.9,
+    reviewCount: 65,
+    locations: "Negombo, Anuradhapura, Mihintale, Sigiriya, Kandy, Nuwara Eliya, Colombo",
+    groupSize: "2-6 people",
+    season: "Available year-round",
+    price: 1599,
+    currency: "$",
+    image: culturalSpiritualTour,
+    highlights: [
+      "Explore ancient Buddhist sites in Anuradhapura",
+      "Experience local village life in Hiriwadunna",
+      "Visit the sacred Temple of the Tooth Relic in Kandy"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrival – Negombo - Rest and relax after the flight, explore Dutch canal and Negombo beach."],
+      ["Day 2", "Negombo to Anuradhapura - Explore the ancient ruins and sacred Bodhi Tree."],
+      ["Day 3", "Mihintale & Aukana Buddha Statue - Climb Mihintale for beautiful views and visit the impressive Aukana statue."],
+      ["Day 4", "Sigiriya & Dambulla - Climb Sigiriya Rock Fortress and tour the Dambulla Cave Temple."],
+      ["Day 5", "Hiriwadunna Village Tour - Enjoy a local village tour with bullock cart rides and cooking demos."],
+      ["Day 6", "Matale & Kandy - Visit Aluvihare Rock Temple and a spice garden. In Kandy, see the Temple of the Tooth."],
+      ["Day 7", "Peradeniya & Cultural Show - Stroll through the Royal Botanical Gardens and enjoy an evening dance performance."],
+      ["Day 8", "Kandy to Nuwara Eliya - Stop by Ramboda Falls, enjoy tea tasting and the cool weather."],
+      ["Day 9", "Colombo City Tour - Return to Colombo, visit the National Museum, Lotus Tower, and do last-minute shopping."],
+      ["Day 10", "Departure - Drop off at Bandaranaike International Airport."]
+    ]
+  },
+  {
+    id: "12",
+    name: "10-Day Comprehensive Sri Lanka Tour",
+    duration: "10 Days",
+    rating: 5,
+    reviewCount: 78,
+    locations: "Sigiriya, Dambulla, Polonnaruwa, Anuradhapura, Kandy, Nuwara Eliya, Ella, Yala, Mirissa",
+    groupSize: "2-6 people",
+    season: "Best from Nov to Apr",
+    price: 1799,
+    currency: "$",
+    image: comprehensiveSriLankaTour,
+    highlights: [
+      "Explore the Cultural Triangle's UNESCO World Heritage sites",
+      "Experience the scenic train journey to Ella",
+      "Enjoy wildlife safari in Yala National Park"
+    ],
+    detailedItinerary: [
+      ["Day 1", "Arrival – Colombo to Sigiriya - Transfer from Bandaranaike International Airport to Sigiriya."],
+      ["Day 2", "Dambulla & Polonnaruwa - Visit the Dambulla Cave Temple, a UNESCO World Heritage Site."],
+      ["Day 3", "Anuradhapura & Mihintale - Tour the sacred city of Anuradhapura and marvel at its dagobas and ancient tanks. Climb Mihintale."],
+      ["Day 4", "Sigiriya Rock & Village Tour - Climb the iconic Sigiriya Rock Fortress."],
+      ["Day 5", "Sigiriya to Kandy via Matale - Visit a spice garden in Matale and learn about Ayurveda."],
+      ["Day 6", "Kandy to Nuwara Eliya - Travel through scenic hills to Nuwara Eliya."],
+      ["Day 7", "Nuwara Eliya to Ella - Take the picturesque train journey to Ella. Visit Nine Arches Bridge and relax at Ella's cozy cafes."],
+      ["Day 8", "Ella to Yala - Optional sunrise hike at Little Adam's Peak."],
+      ["Day 9", "Yala to Mirissa - Travel along the southern coast to Mirissa."],
+      ["Day 10", "Mirissa to Colombo – Departure - Stop at Galle Fort or a turtle hatchery on the way back."]
     ],
     isPopular: true
   }

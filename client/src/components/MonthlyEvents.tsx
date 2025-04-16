@@ -144,16 +144,24 @@ const MonthlyEvents = () => {
             >
               {/* Left side - Images */}
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  {activeMonth.images.map((image, index) => (
-                    <div key={index} className={`rounded-xl overflow-hidden shadow-md ${index % 3 === 0 ? 'col-span-2' : ''}`}>
-                      <img
-                        src={image}
-                        alt={`${activeMonth.name} in Sri Lanka`}
-                        className="w-full h-48 object-cover"
-                      />
-                    </div>
-                  ))}
+                <div className="grid grid-cols-1 gap-4">
+                  {/* First image taking full width */}
+                  <div className="rounded-xl overflow-hidden shadow-md">
+                    <img
+                      src={activeMonth.images[0]}
+                      alt={`${activeMonth.name} in Sri Lanka - Main view`}
+                      className="w-full h-56 object-cover"
+                    />
+                  </div>
+                  
+                  {/* Second image taking full width */}
+                  <div className="rounded-xl overflow-hidden shadow-md">
+                    <img
+                      src={activeMonth.images[1]}
+                      alt={`${activeMonth.name} in Sri Lanka - Secondary view`}
+                      className="w-full h-56 object-cover"
+                    />
+                  </div>
                 </div>
                 <div className="bg-white p-4 rounded-xl shadow-md">
                   <h4 className="text-lg font-bold text-primary mb-2">Weather & Travel Tips</h4>

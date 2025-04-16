@@ -27,6 +27,7 @@ ${bookingData.type === 'package' ? `Package: ${bookingData.packageName}` : ''}
 ${bookingData.type === 'rental' ? `Car Model: ${bookingData.carModel}` : ''}
 Email: ${bookingData.email}
 Phone: ${bookingData.phone}
+${bookingData.referenceNumber ? `Reference Number: ${bookingData.referenceNumber}` : ''}
 ${bookingData.date ? `Travel Date: ${bookingData.date}` : ''}
 ${bookingData.travelDates ? `Travel Dates: ${bookingData.travelDates}` : ''}
 ${bookingData.travelers ? `Travelers: ${bookingData.travelers}` : ''}

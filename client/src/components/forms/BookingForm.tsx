@@ -16,6 +16,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ packageName, onClose }) => {
     phone: '',
     date: '',
     travelers: '',
+    referenceNumber: '',
     message: ''
   });
 
@@ -64,88 +65,106 @@ const BookingForm: React.FC<BookingFormProps> = ({ packageName, onClose }) => {
     <form onSubmit={handleSubmit}>
       <input type="hidden" name="packageName" value={packageName} />
       
-      <div className="mb-4">
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-          required 
-        />
-      </div>
-      
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-          required 
-        />
-      </div>
-      
-      <div className="mb-4">
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-        <input 
-          type="tel" 
-          id="phone" 
-          name="phone" 
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-          required 
-        />
-      </div>
-      
-      <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-2 gap-4">
+        {/* Left column fields */}
         <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-2">Travel Date *</label>
-          <input 
-            type="text" 
-            id="date" 
-            name="date" 
-            value={formData.date}
-            onChange={handleChange}
-            placeholder="MM/DD/YYYY" 
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-            required 
-          />
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+              required 
+            />
+          </div>
+          
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+              required 
+            />
+          </div>
+          
+          <div className="mb-4">
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+              required 
+            />
+          </div>
         </div>
         
+        {/* Right column fields */}
         <div>
-          <label htmlFor="travelers" className="block text-sm font-medium text-gray-700 mb-2">Travelers *</label>
-          <select 
-            id="travelers" 
-            name="travelers" 
-            value={formData.travelers}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-            required
-          >
-            <option value="">Select</option>
-            <option value="1">1 person</option>
-            <option value="2">2 people</option>
-            <option value="3">3 people</option>
-            <option value="4">4 people</option>
-            <option value="5+">5+ people</option>
-          </select>
+          <div className="mb-4">
+            <label htmlFor="referenceNumber" className="block text-sm font-medium text-gray-700 mb-1.5">Reference Number</label>
+            <input 
+              type="text" 
+              id="referenceNumber" 
+              name="referenceNumber" 
+              value={formData.referenceNumber}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            />
+          </div>
+          
+          <div className="mb-4">
+            <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1.5">Travel Date *</label>
+            <input 
+              type="text" 
+              id="date" 
+              name="date" 
+              value={formData.date}
+              onChange={handleChange}
+              placeholder="MM/DD/YYYY" 
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+              required 
+            />
+          </div>
+          
+          <div className="mb-4">
+            <label htmlFor="travelers" className="block text-sm font-medium text-gray-700 mb-1.5">Travelers *</label>
+            <select 
+              id="travelers" 
+              name="travelers" 
+              value={formData.travelers}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+              required
+            >
+              <option value="">Select</option>
+              <option value="1">1 person</option>
+              <option value="2">2 people</option>
+              <option value="3">3 people</option>
+              <option value="4">4 people</option>
+              <option value="5+">5+ people</option>
+            </select>
+          </div>
         </div>
       </div>
       
-      <div className="mb-6">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Special Requirements</label>
+      <div className="mb-5">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">Special Requirements</label>
         <textarea 
           id="message" 
           name="message" 
           value={formData.message}
           onChange={handleChange}
-          rows={4} 
+          rows={3}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
         ></textarea>
       </div>
@@ -153,7 +172,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ packageName, onClose }) => {
       <button 
         type="submit" 
         disabled={isSubmitting}
-        className="w-full px-6 py-3 bg-primary hover:bg-dark text-white font-medium rounded-full shadow-md transition duration-300"
+        className="w-full px-6 py-3 bg-primary hover:bg-dark text-white font-medium rounded-full shadow-md transition duration-300 text-base"
       >
         {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
       </button>

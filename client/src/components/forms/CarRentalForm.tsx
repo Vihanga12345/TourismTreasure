@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { sendBookingEmail } from '../../utils/emailService';
+import { vehicles } from '../../data/vehicles';
 
 interface CarRentalFormProps {
   carModel: string;
@@ -10,6 +11,10 @@ interface CarRentalFormProps {
 const CarRentalForm: React.FC<CarRentalFormProps> = ({ carModel, onClose }) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Check if this vehicle is driver-only
+  const isDriverOnly = vehicles.find(v => v.name === carModel)?.driverOnly || false;
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +22,19 @@ const CarRentalForm: React.FC<CarRentalFormProps> = ({ carModel, onClose }) => {
     startDate: '',
     endDate: '',
     location: '',
-    driver: '',
+    driver: isDriverOnly ? 'yes' : '',
     message: ''
   });
+
+  // Update driver selection when vehicle changes or if it's a driver-only vehicle
+  useEffect(() => {
+    if (isDriverOnly) {
+      setFormData(prev => ({
+        ...prev,
+        driver: 'yes'
+      }));
+    }
+  }, [carModel, isDriverOnly]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -170,18 +185,22 @@ const CarRentalForm: React.FC<CarRentalFormProps> = ({ carModel, onClose }) => {
             />
             <span>Yes, I need a driver</span>
           </label>
-          <label className="flex items-center">
+          <label className={`flex items-center ${isDriverOnly ? 'opacity-50' : ''}`}>
             <input 
               type="radio" 
               name="driver" 
               value="no" 
               checked={formData.driver === 'no'}
               onChange={handleRadioChange}
-              className="mr-2" 
+              className="mr-2"
+              disabled={isDriverOnly}
             />
             <span>No, self-drive</span>
           </label>
         </div>
+        {isDriverOnly && (
+          <p className="mt-2 text-sm text-red-600">This vehicle is available with driver only.</p>
+        )}
       </div>
       
       <div className="mb-6">

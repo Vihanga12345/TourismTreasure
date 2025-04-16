@@ -1,23 +1,27 @@
 import { motion } from 'framer-motion';
-// Import the image directly
-import backgroundImage from '../assets/background.jpg';
+// Import the video directly
+import backgroundVideo from '../assets/Vedios/Vedio.mp4';
 
 const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Semi-transparent overlay for text readability */}
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+      {/* Video background */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        src={backgroundVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-24">
+      {/* Semi-transparent overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-24">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,7 +61,7 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce z-20">
         <a href="#tours" className="text-white">
           <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>

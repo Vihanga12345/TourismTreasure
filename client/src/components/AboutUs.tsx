@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
 
+// Import the images
+import sriLankanBeach from '../assets/About Us/Sri lankan Beach.jpeg';
+import sriLankanNature from '../assets/About Us/Sri Lankan Nature.jpg';
+import sriLankanTemple from '../assets/About Us/Sri Lankan Temple.jpg';
+import sriLankanCulture from '../assets/About Us/Sri lankan Culture.jpeg';
+
 const AboutUs = () => {
   return (
     <section id="about" className="py-20">
@@ -80,70 +86,11 @@ const AboutUs = () => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 gap-4"
           >
-            <img src="/Pics/pexels-malindabandaralk-16508228.jpg" alt="Sri Lanka Beach" className="rounded-xl shadow-lg h-48 object-cover w-full" />
-            <img src="/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg" alt="Sri Lanka Temple" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
-            <img src="/Pics/pexels-eugene-dorosh-230277-739409.jpg" alt="Sri Lanka Nature" className="rounded-xl shadow-lg h-48 object-cover w-full" />
-            <img src="/Pics/pexels-hirusha-12144831.jpg" alt="Sri Lanka Culture" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
+            <img src={sriLankanBeach} alt="Sri Lanka Beach" className="rounded-xl shadow-lg h-48 object-cover w-full" />
+            <img src={sriLankanTemple} alt="Sri Lanka Temple" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
+            <img src={sriLankanNature} alt="Sri Lanka Nature" className="rounded-xl shadow-lg h-48 object-cover w-full" />
+            <img src={sriLankanCulture} alt="Sri Lanka Culture" className="rounded-xl shadow-lg h-48 object-cover w-full mt-8" />
           </motion.div>
-        </div>
-        
-        <div className="mt-20">
-          <motion.h3 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-serif font-bold text-primary mb-8 text-center"
-          >
-            Why Choose Ceylon Explorer?
-          </motion.h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-md"
-            >
-              <div className="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-map-marked-alt text-2xl text-primary"></i>
-              </div>
-              <h4 className="text-xl font-bold text-primary mb-3 text-center">Local Expertise</h4>
-              <p className="text-gray-600 text-center">
-                Our team has extensive knowledge of Sri Lanka's culture, history, and hidden gems that typical tourists might miss.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 rounded-xl shadow-md"
-            >
-              <div className="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-hand-holding-heart text-2xl text-primary"></i>
-              </div>
-              <h4 className="text-xl font-bold text-primary mb-3 text-center">Personalized Service</h4>
-              <p className="text-gray-600 text-center">
-                We create customized experiences based on your interests, preferences, and travel style for a truly unique journey.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white p-6 rounded-xl shadow-md"
-            >
-              <div className="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-shield-alt text-2xl text-primary"></i>
-              </div>
-              <h4 className="text-xl font-bold text-primary mb-3 text-center">Safety & Reliability</h4>
-              <p className="text-gray-600 text-center">
-                Your safety is our priority with well-maintained vehicles, trained drivers, and 24/7 customer support throughout your trip.
-              </p>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>
