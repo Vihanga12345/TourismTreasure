@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add any custom CSS below this line */
+:root {
+  --primary-color: #144673;
+  --secondary-color: #F9B700;
+  --dark-color: #0c2b47;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 @layer base {
   * {
     @apply border-border;
