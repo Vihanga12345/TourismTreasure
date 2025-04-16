@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "client/dist",
-        "buildCommand": "cd client && npm install --include=dev && npm run build"
+        "buildCommand": "cd client && npm install --force && npm run build"
       }
     },
     {
@@ -30,5 +30,10 @@
       "src": "/(.*)",
       "dest": "/client/dist/index.html"
     }
-  ]
+  ],
+  "github": {
+    "enabled": true,
+    "silent": false,
+    "autoJobCancelation": true
+  }
 } 
