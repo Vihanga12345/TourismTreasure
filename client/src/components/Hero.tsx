@@ -1,17 +1,21 @@
 import { motion } from 'framer-motion';
+// Import the image directly
+import backgroundImage from '../assets/background.jpg';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center">
-      {/* Use the provided Sri Lanka image as background */}
-      <div className="absolute inset-0">
-        <img 
-          src="/Pics/pexels-tomas-malik-793526-1998439.jpg" 
-          alt="Sri Lanka Landscape" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
-      </div>
+    <section 
+      id="home" 
+      className="relative min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Semi-transparent overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-30"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-24">
         <motion.h1

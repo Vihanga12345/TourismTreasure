@@ -1,18 +1,32 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+// Import images from assets
+import pexelsMalindabandaralk from '../assets/pexels-malindabandaralk-16508228.jpg';
+import pexelsRomanOdintsov from '../assets/pexels-roman-odintsov-4553621.jpg';
+import pexelsAkthar from '../assets/pexels-akthar-595196.jpg';
+import pexelsTomasMalik from '../assets/pexels-tomas-malik-793526-1998439.jpg';
+import pexelsSandraMack from '../assets/pexels-sandra-mack-1233541-2365974.jpg';
+import pexelsGihans from '../assets/pexels-gihans-18199788.jpg';
+import pexelsGenineAndrada from '../assets/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg';
+import pexelsEugeneDorosh from '../assets/pexels-eugene-dorosh-230277-739409.jpg';
+import pexelsHirusha from '../assets/pexels-hirusha-12144831.jpg';
+import backgroundImage from '../assets/background.jpg';
+
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   
   const galleryItems = [
-    { id: 1, category: 'beaches', image: '/Pics/pexels-malindabandaralk-16508228.jpg', alt: 'Beach in Sri Lanka' },
-    { id: 2, category: 'wildlife', image: '/Pics/pexels-roman-odintsov-4553621.jpg', alt: 'Wildlife in Sri Lanka' },
-    { id: 3, category: 'temples', image: '/Pics/pexels-akthar-595196.jpg', alt: 'Temple in Sri Lanka' },
-    { id: 4, category: 'landscapes', image: '/Pics/pexels-tomas-malik-793526-1998439.jpg', alt: 'Mountain Landscape in Sri Lanka' },
-    { id: 5, category: 'beaches', image: '/Pics/pexels-sandra-mack-1233541-2365974.jpg', alt: 'Tropical Beach in Sri Lanka' },
-    { id: 6, category: 'wildlife', image: '/Pics/pexels-gihans-18199788.jpg', alt: 'Sri Lankan Wildlife' },
-    { id: 7, category: 'temples', image: '/Pics/pexels-genine-alyssa-pedreno-andrada-1263127-2403209.jpg', alt: 'Temple Architecture in Sri Lanka' },
-    { id: 8, category: 'landscapes', image: '/Pics/pexels-eugene-dorosh-230277-739409.jpg', alt: 'Scenic Landscape in Sri Lanka' }
+    { id: 1, category: 'beaches', image: pexelsMalindabandaralk, alt: 'Tropical beach with azure water in Sri Lanka' },
+    { id: 2, category: 'wildlife', image: pexelsRomanOdintsov, alt: 'Wild elephants in Sri Lanka national park' },
+    { id: 3, category: 'temples', image: pexelsAkthar, alt: 'Ancient temple architecture in Sri Lanka' },
+    { id: 4, category: 'landscapes', image: pexelsTomasMalik, alt: 'Stunning mountain landscape in Sri Lanka highlands' },
+    { id: 5, category: 'beaches', image: pexelsSandraMack, alt: 'Beautiful sunset over a Sri Lankan beach' },
+    { id: 6, category: 'wildlife', image: pexelsGihans, alt: 'Exotic birds in Sri Lankan wildlife sanctuary' },
+    { id: 7, category: 'temples', image: pexelsGenineAndrada, alt: 'Historic temple ruins in Sri Lanka' },
+    { id: 8, category: 'landscapes', image: pexelsEugeneDorosh, alt: 'Tea plantations in Sri Lanka central highlands' },
+    { id: 9, category: 'wildlife', image: pexelsHirusha, alt: 'Leopard in Yala National Park' },
+    { id: 10, category: 'landscapes', image: backgroundImage, alt: 'Breathtaking view of Sri Lankan mountains' }
   ];
 
   const filteredItems = activeFilter === 'all' 
@@ -29,10 +43,10 @@ const Gallery = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Gallery</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Sri Lanka Gallery</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="max-w-3xl mx-auto text-gray-600">
-            Explore the breathtaking beauty of Sri Lanka through our gallery of stunning destinations.
+            Explore the breathtaking beauty of Sri Lanka through our gallery showcasing pristine beaches, exotic wildlife, ancient temples, and stunning landscapes.
           </p>
         </motion.div>
         
