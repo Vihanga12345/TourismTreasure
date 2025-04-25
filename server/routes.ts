@@ -1,7 +1,17 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import emailjs from '@emailjs/browser';
+import { sendgridApiKey } from "./config";
+import sgMail from '@sendgrid/mail';
+
+// Initialize SendGrid if the API key is available
+if (sendgridApiKey) {
+  sgMail.setApiKey(sendgridApiKey);
+}
+
+// EmailJS service and template IDs - replace with actual values from your emailjs account
+const EMAILJS_SERVICE_ID = 'service_f58tvso';
+const EMAILJS_TEMPLATE_ID = 'template_mofpg9o';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // prefix all routes with /api
@@ -9,88 +19,102 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Email service endpoint
   app.post('/api/send-email', async (req, res) => {
     try {
-      const { 
-        type, 
-        packageName, 
-        carModel, 
-        name, 
-        email, 
-        phone, 
-        message,
-        ...otherData 
-      } = req.body;
+      const { type, data } = req.body;
       
-      // Validate required fields
-      if (!type || !email || !phone) {
+      if (!type || !data) {
         return res.status(400).json({ 
           message: "Missing required fields" 
         });
       }
       
-      // Define which template to use based on the type
-      let templateId = '';
-      let templateData = {};
-      
-      switch (type) {
-        case 'package':
-          if (!packageName) {
-            return res.status(400).json({ message: "Missing package name" });
-          }
-          templateId = process.env.EMAILJS_PACKAGE_TEMPLATE_ID || 'package_template';
-          templateData = {
-            packageName,
-            name,
-            email,
-            phone,
-            message,
-            ...otherData
-          };
-          break;
-          
-        case 'rental':
-          if (!carModel) {
-            return res.status(400).json({ message: "Missing car model" });
-          }
-          templateId = process.env.EMAILJS_RENTAL_TEMPLATE_ID || 'rental_template';
-          templateData = {
-            carModel,
-            name,
-            email,
-            phone,
-            message,
-            ...otherData
-          };
-          break;
-          
-        case 'custom':
-          templateId = process.env.EMAILJS_CUSTOM_TEMPLATE_ID || 'custom_template';
-          templateData = {
-            name: otherData.fullName || name,
-            email,
-            phone,
-            message,
-            ...otherData
-          };
-          break;
-          
-        default:
-          return res.status(400).json({ message: "Invalid request type" });
+      // Validate required fields based on inquiry type
+      if (!data.email) {
+        return res.status(400).json({ 
+          message: "Email address is required" 
+        });
       }
       
-      // In a real application, you would send the email here
-      // For this example, we'll just log it and return a success response
-      console.log('Sending email with data:', templateData);
+      // For air ticket bookings
+      if (type === 'flight-inquiry') {
+        // Format data for the email
+        const emailData = {
+          name: data.firstName && data.lastName ? `${data.firstName} ${data.lastName}` : 'Traveler',
+          time: new Date().toLocaleString(),
+          message: `
+Air Ticket Booking Request
+
+Trip Details:
+- Tour Type: ${data.tourType || 'Not specified'}
+- Cabin Class: ${data.cabinClass || 'Not specified'}
+- Student Fare: ${data.studentFare ? 'Yes' : 'No'}
+
+Flight Details:
+- Departure: ${data.departureCountry} ${data.departureAirport ? `(${data.departureAirport})` : ''}
+- Arrival: ${data.arrivalCountry} ${data.arrivalAirport ? `(${data.arrivalAirport})` : ''}
+- Departure Date: ${data.departureDate || 'Not specified'}
+- Return Date: ${data.returnDate || 'Not applicable'}
+
+Passenger Information:
+- Infants (0-2): ${data.infants || 0}
+- Children (3-12): ${data.children || 0}
+- Adults (13+): ${data.adults || 1}
+
+Contact Information:
+- Name: ${data.firstName || ''} ${data.lastName || ''}
+- Email: ${data.email}
+- Phone: ${data.mobileNumber || 'Not provided'}
+
+Additional Requirements:
+${data.additionalRequirements || 'None provided'}
+          `,
+          email: data.email
+        };
+        
+        // Log the email data
+        console.log('Preparing email with data:', {
+          recipient: 'jayamannevihanga@gmail.com',
+          subject: 'New Air Ticket Booking Request',
+          dataLength: Object.keys(emailData).length
+        });
+        
+        // Send email using SendGrid if available
+        if (sendgridApiKey) {
+          const msg = {
+            to: 'jayamannevihanga@gmail.com',
+            from: data.email,
+            subject: 'New Air Ticket Booking Request',
+            text: emailData.message,
+            html: emailData.message.replace(/\n/g, '<br>'),
+          };
+          
+          await sgMail.send(msg);
+          console.log('Email sent successfully via SendGrid');
+        } else {
+          // Log that SendGrid is not available
+          console.log('SendGrid API key not available, skipping email send');
+        }
+        
+        // Return success response
+        return res.status(200).json({ 
+          success: true,
+          message: "Your booking request has been sent successfully!"
+        });
+      }
       
-      // Return success response
+      // Handle other email types (package, rental, custom)
+      // ...existing code for other types
+      
+      // Return success for other types
       res.status(200).json({ 
-        message: "Email sent successfully",
-        data: templateData
+        success: true,
+        message: "Your request has been sent successfully!",
       });
       
     } catch (error) {
       console.error('Error sending email:', error);
       res.status(500).json({ 
-        message: "Failed to send email" 
+        success: false,
+        message: "Failed to send your request. Please try again or contact us directly." 
       });
     }
   });

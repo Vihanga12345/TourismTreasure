@@ -1,40 +1,21 @@
-import { useEffect, useState } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import MonthlyEvents from "./components/MonthlyEvents";
-import TourPackages from "./components/TourPackages";
-import CarRentals from "./components/CarRentals";
-import AboutUs from "./components/AboutUs";
-import Gallery from "./components/Gallery";
-import Team from "./components/Team";
-import Testimonials from "./components/Testimonials";
-import Footer from "./components/Footer";
-import BookingModal from "./components/modals/BookingModal";
-import CarRentalModal from "./components/modals/CarRentalModal";
+import { useEffect } from "react";
+import { Toaster } from "./components/ui/toaster";
+import { HelmetProvider } from 'react-helmet-async';
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
+import { AppProvider } from './contexts/AppContext';
+
+// Lazy loaded pages
+import { lazy, Suspense } from 'react';
+const Home = lazy(() => import('./pages/HomePage'));
+const Packages = lazy(() => import('./pages/PackagesPage'));
+const CarRentals = lazy(() => import('./pages/CarRentalPage'));
+const AirTickets = lazy(() => import('./pages/AirTicketPage'));
+const NotFound = lazy(() => import('./pages/not-found'));
 
 function App() {
-  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
-  const [selectedCar, setSelectedCar] = useState<string | null>(null);
-
-  const handleBookingModalOpen = (packageName: string) => {
-    setSelectedPackage(packageName);
-  };
-
-  const handleBookingModalClose = () => {
-    setSelectedPackage(null);
-  };
-
-  const handleCarModalOpen = (carModel: string) => {
-    setSelectedCar(carModel);
-  };
-
-  const handleCarModalClose = () => {
-    setSelectedCar(null);
-  };
-
   // Initialize AOS animation library
   useEffect(() => {
     const script = document.createElement('script');
@@ -56,31 +37,30 @@ function App() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="font-sans text-gray-800 bg-light">
-        <Navbar />
-        <Hero />
-        <TourPackages onBookNow={handleBookingModalOpen} />
-        <CarRentals onRentNow={handleCarModalOpen} />
-        <AboutUs />
-        <Gallery />
-        <Team />
-        <MonthlyEvents />
-        <Testimonials />
-        <Footer />
-        <BookingModal 
-          packageName={selectedPackage} 
-          isOpen={selectedPackage !== null} 
-          onClose={handleBookingModalClose} 
-        />
-        <CarRentalModal 
-          carModel={selectedCar} 
-          isOpen={selectedCar !== null} 
-          onClose={handleCarModalClose} 
-        />
-        <Toaster />
-      </div>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider>
+          <BrowserRouter>
+            <Suspense fallback={
+              <div className="h-screen w-full flex items-center justify-center">
+                <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+              </div>
+            }>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="packages" element={<Packages />} />
+                  <Route path="car-rentals" element={<CarRentals />} />
+                  <Route path="air-tickets" element={<AirTickets />} />
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+              </Routes>
+            </Suspense>
+            <Toaster />
+          </BrowserRouter>
+        </AppProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 

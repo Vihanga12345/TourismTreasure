@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
+import logoImage from '../assets/Gallery/Exclusive_Travels_LOGO.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +23,22 @@ const Navbar = () => {
     };
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   return (
     <nav className={`fixed w-full bg-white z-50 transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`} id="navbar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-3">
+              <img 
+                src={logoImage} 
+                alt="Exclusive Travels Logo" 
+                className="h-10 w-auto" 
+              />
               <motion.span 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -34,16 +47,13 @@ const Navbar = () => {
               >
                 Exclusive<span className="text-secondary">Travels</span>
               </motion.span>
-            </div>
+            </Link>
           </div>
-          <div className="hidden md:flex items-center justify-between w-full ml-8">
-            <a href="#home" className="nav-link px-4 py-2 text-sm font-medium">Home</a>
-            <a href="#tours" className="nav-link px-4 py-2 text-sm font-medium">Tour Packages</a>
-            <a href="#cars" className="nav-link px-4 py-2 text-sm font-medium">Car Rentals</a>
-            <a href="#about" className="nav-link px-4 py-2 text-sm font-medium">About Us</a>
-            <a href="#gallery" className="nav-link px-4 py-2 text-sm font-medium">Gallery</a>
-            <a href="#team" className="nav-link px-4 py-2 text-sm font-medium">Our Team</a>
-            <a href="#monthly-events" className="nav-link px-4 py-2 text-sm font-medium">Events Calendar</a>
+          <div className="hidden md:flex items-center justify-end w-full ml-12">
+            <Link to="/" className={`nav-link px-4 py-2 text-sm font-medium ${location.pathname === '/' ? 'text-primary font-semibold' : 'text-gray-600 hover:text-primary'}`}>Home</Link>
+            <Link to="/packages" className={`nav-link px-4 py-2 text-sm font-medium ${location.pathname === '/packages' ? 'text-primary font-semibold' : 'text-gray-600 hover:text-primary'}`}>Tour Packages</Link>
+            <Link to="/car-rentals" className={`nav-link px-4 py-2 text-sm font-medium ${location.pathname === '/car-rentals' ? 'text-primary font-semibold' : 'text-gray-600 hover:text-primary'}`}>Car Rentals</Link>
+            <Link to="/air-tickets" className={`nav-link px-4 py-2 text-sm font-medium ${location.pathname === '/air-tickets' ? 'text-primary font-semibold' : 'text-gray-600 hover:text-primary'}`}>Air Tickets</Link>
           </div>
           <div className="flex md:hidden items-center">
             <button 
@@ -62,13 +72,10 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={`md:hidden bg-white shadow-md ${isOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#home" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="#tours" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Tour Packages</a>
-          <a href="#cars" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Car Rentals</a>
-          <a href="#about" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>About Us</a>
-          <a href="#gallery" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Gallery</a>
-          <a href="#team" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Our Team</a>
-          <a href="#monthly-events" className="block px-3 py-2 text-base font-medium hover:bg-gray-100" onClick={() => setIsOpen(false)}>Events Calendar</a>
+          <Link to="/" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/' ? 'text-primary bg-gray-50' : 'text-gray-600 hover:bg-gray-100'}`}>Home</Link>
+          <Link to="/packages" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/packages' ? 'text-primary bg-gray-50' : 'text-gray-600 hover:bg-gray-100'}`}>Tour Packages</Link>
+          <Link to="/car-rentals" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/car-rentals' ? 'text-primary bg-gray-50' : 'text-gray-600 hover:bg-gray-100'}`}>Car Rentals</Link>
+          <Link to="/air-tickets" className={`block px-3 py-2 text-base font-medium ${location.pathname === '/air-tickets' ? 'text-primary bg-gray-50' : 'text-gray-600 hover:bg-gray-100'}`}>Air Tickets</Link>
         </div>
       </div>
     </nav>

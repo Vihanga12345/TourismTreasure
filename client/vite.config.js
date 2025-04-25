@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get directory name for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,24 +27,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    rollupOptions: {
-      // External dependencies that should not be bundled
-      external: [
-        // Add any problematic dependencies here if needed
-      ]
-    }
   },
-  optimizeDeps: {
-    include: [
-      '@tanstack/react-query',
-      'react',
-      'react-dom',
-      'framer-motion',
-      '@radix-ui/react-toast',
-      'class-variance-authority',
-      'clsx',
-      'lucide-react',
-      'tailwind-merge'
-    ]
-  }
 }); 

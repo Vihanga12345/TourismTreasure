@@ -1,14 +1,25 @@
+import logoImage from '../assets/Gallery/Exclusive_Travels_LOGO.png';
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {/* Left Column - Logo and Description */}
           <div>
-            <h3 className="font-serif font-bold text-2xl mb-4">Exclusive<span className="text-secondary">Travels</span></h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logoImage} 
+                alt="Exclusive Travels Logo" 
+                className="h-10 w-auto bg-white rounded-md p-1" 
+              />
+              <h3 className="font-serif font-bold text-2xl">Exclusive<span className="text-secondary">Travels</span></h3>
+            </div>
             <p className="mb-4 text-gray-300">
               Your trusted partner for unforgettable Sri Lankan experiences. Discover the beauty of our island with our curated tour packages and reliable car rental services.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-6">
               <a href="#" className="text-white hover:text-secondary transition-colors"><i className="fab fa-facebook-f"></i></a>
               <a href="#" className="text-white hover:text-secondary transition-colors"><i className="fab fa-instagram"></i></a>
               <a href="#" className="text-white hover:text-secondary transition-colors"><i className="fab fa-twitter"></i></a>
@@ -16,18 +27,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
-            <h4 className="font-bold text-xl mb-4">Tour Categories</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Cultural Tours</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Wildlife Safaris</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Beach Holidays</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Adventure Tours</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Honeymoon Packages</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-secondary transition-colors">Family Holidays</a></li>
-            </ul>
-          </div>
-          
+          {/* Middle Column - Contact Information */}
           <div>
             <h4 className="font-bold text-xl mb-4">Contact Us</h4>
             <ul className="space-y-3">
@@ -53,6 +53,40 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          
+          {/* Right Column - Review Platform Links */}
+          <div>
+            <h4 className="font-bold text-xl mb-4">Check Our Reviews</h4>
+            <div className="flex flex-col space-y-3">
+              <a 
+                href="https://www.tripadvisor.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center bg-white text-primary px-4 py-3 rounded-md hover:bg-secondary transition-colors"
+              >
+                <i className="fab fa-tripadvisor mr-2 text-lg"></i>
+                <span className="font-medium">TripAdvisor</span>
+              </a>
+              <a 
+                href="https://www.booking.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center bg-white text-primary px-4 py-3 rounded-md hover:bg-secondary transition-colors"
+              >
+                <i className="fa fa-bed mr-2 text-lg"></i>
+                <span className="font-medium">Booking.com</span>
+              </a>
+              <a 
+                href="https://www.trustpilot.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center bg-white text-primary px-4 py-3 rounded-md hover:bg-secondary transition-colors"
+              >
+                <i className="fa fa-star mr-2 text-lg"></i>
+                <span className="font-medium">Trustpilot</span>
+              </a>
+            </div>
+          </div>
         </div>
         
         <div className="border-t border-gray-700 pt-8 mt-8">
@@ -60,14 +94,11 @@ const Footer = () => {
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} Exclusive Travels. All rights reserved.
             </p>
-            <a 
-              href="https://t3xlk.com/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-secondary text-sm transition-colors"
-            >
-              Developed by <span className="font-medium text-secondary">T3X</span>
-            </a>
+            <div className="flex flex-col items-center md:items-end">
+              <p className="text-gray-400 text-sm">
+                Developed by <a href="https://t3xlk.com/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-yellow-300 transition-colors">T3X</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

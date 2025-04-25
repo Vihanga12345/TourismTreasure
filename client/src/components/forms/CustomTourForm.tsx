@@ -87,40 +87,44 @@ const CustomTourForm = () => {
     <form onSubmit={handleSubmit} className="custom-form">
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <div>
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name<span className="text-red-500">*</span></label>
           <input 
             type="text" 
             id="fullName" 
             name="fullName" 
             value={formData.fullName}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
             required
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address<span className="text-red-500">*</span></label>
           <input 
             type="email" 
             id="email" 
             name="email" 
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
             required
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
-            required
-          />
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Mobile Number<span className="text-red-500">*</span></label>
+          <div className="flex items-center bg-gray-50 border border-gray-300 rounded-lg">
+            <span className="px-3 text-gray-500">LK +94</span>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="07X XXXX XXX"
+              className="w-full py-3 pr-3 bg-transparent border-none focus:outline-none" 
+              required
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="referenceNumber" className="block text-sm font-medium text-gray-700 mb-2">Reference Number</label>
@@ -130,17 +134,17 @@ const CustomTourForm = () => {
             name="referenceNumber" 
             value={formData.referenceNumber}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
           />
         </div>
         <div>
-          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">Country *</label>
+          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">Country<span className="text-red-500">*</span></label>
           <select 
             id="country" 
             name="country" 
             value={formData.country}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
             required
           >
             <option value="">Select your country</option>
@@ -155,7 +159,7 @@ const CustomTourForm = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="travelDates" className="block text-sm font-medium text-gray-700 mb-2">Travel Dates *</label>
+          <label htmlFor="travelDates" className="block text-sm font-medium text-gray-700 mb-2">Travel Dates<span className="text-red-500">*</span></label>
           <input 
             type="text" 
             id="travelDates" 
@@ -163,18 +167,18 @@ const CustomTourForm = () => {
             value={formData.travelDates}
             onChange={handleChange}
             placeholder="MM/DD/YYYY - MM/DD/YYYY" 
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
             required
           />
         </div>
         <div>
-          <label htmlFor="groupSize" className="block text-sm font-medium text-gray-700 mb-2">Number of Travelers *</label>
+          <label htmlFor="groupSize" className="block text-sm font-medium text-gray-700 mb-2">Number of Travelers<span className="text-red-500">*</span></label>
           <select 
             id="groupSize" 
             name="groupSize" 
             value={formData.groupSize}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
             required
           >
             <option value="">Select group size</option>
@@ -189,7 +193,7 @@ const CustomTourForm = () => {
       </div>
       
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-3">Select Your Interests *</label>
+        <label className="block text-sm font-medium text-gray-700 mb-3">Select Your Interests<span className="text-red-500">*</span></label>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           <label className="flex items-center">
             <input 
@@ -261,13 +265,13 @@ const CustomTourForm = () => {
       </div>
       
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Accommodation Preference *</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Accommodation Preference<span className="text-red-500">*</span></label>
         <select 
           id="accommodation" 
           name="accommodation" 
           value={formData.accommodation}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
           required
         >
           <option value="">Select accommodation type</option>
@@ -279,13 +283,13 @@ const CustomTourForm = () => {
       </div>
       
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range (per person) *</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range (per person)<span className="text-red-500">*</span></label>
         <select 
           id="budget" 
           name="budget" 
           value={formData.budget}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
           required
         >
           <option value="">Select budget range</option>
@@ -304,7 +308,7 @@ const CustomTourForm = () => {
           value={formData.message}
           onChange={handleChange}
           rows={4} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" 
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-gray-50" 
           placeholder="Tell us more about your preferences, special requirements, or any specific places you'd like to visit..."
         ></textarea>
       </div>
@@ -313,7 +317,7 @@ const CustomTourForm = () => {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="px-8 py-3 bg-primary hover:bg-dark text-white font-medium rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+          className="px-8 py-3 bg-secondary hover:bg-yellow-400 text-primary font-bold rounded-full shadow-lg transition duration-300 transform hover:scale-105"
         >
           {isSubmitting ? 'Submitting...' : 'Submit Custom Tour Request'}
         </button>

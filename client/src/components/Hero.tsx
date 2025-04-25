@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 // Import the video directly
 import backgroundVideo from '../assets/Vedios/Vedio.mp4';
 
@@ -46,18 +47,18 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="flex flex-col sm:flex-row justify-center gap-4"
         >
-          <a 
-            href="#tours" 
+          <Link 
+            to="/packages" 
             className="px-8 py-4 bg-secondary text-primary font-bold rounded-full shadow-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-105"
           >
             Explore Tour Packages
-          </a>
-          <a 
-            href="#cars" 
+          </Link>
+          <Link 
+            to="/car-rentals" 
             className="px-8 py-4 bg-white text-primary font-bold rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105"
           >
             View Car Rentals
-          </a>
+          </Link>
         </motion.div>
       </div>
       

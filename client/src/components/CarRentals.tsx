@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { vehicles } from '../data/vehicles';
+import { useAppContext } from '../contexts/AppContext';
 
-interface CarRentalsProps {
-  onRentNow: (carModel: string) => void;
-}
-
-const CarRentals: React.FC<CarRentalsProps> = ({ onRentNow }) => {
+const CarRentals = () => {
   const [filterType, setFilterType] = useState('all');
   const [visibleRates, setVisibleRates] = useState<{[key: string]: boolean}>({});
   const [currentPage, setCurrentPage] = useState(1);
   const vehiclesPerPage = 6;
+  const { handleCarModalOpen } = useAppContext();
 
   const toggleRates = (vehicleId: string) => {
     setVisibleRates(prev => ({
@@ -46,13 +44,111 @@ const CarRentals: React.FC<CarRentalsProps> = ({ onRentNow }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Car Rentals</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="max-w-3xl mx-auto text-gray-600">
             Choose from our fleet of well-maintained vehicles to explore Sri Lanka at your own pace.
           </p>
+        </motion.div>
+        
+        {/* Driver & License Requirements */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-10"
+        >
+          <h3 className="text-2xl font-serif font-bold text-primary mb-6 text-center">Driver & License Requirements</h3>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Left Column - Requirements */}
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md">
+              <h4 className="text-lg font-bold text-primary mb-4 flex items-center">
+                <i className="fas fa-id-card text-secondary mr-2"></i>
+                License Requirements
+              </h4>
+              <p className="text-gray-700 mb-4">
+                At the car pickup, it is compulsory to hold a temporary Sri Lankan driver permit for self-driving.
+              </p>
+              <h5 className="font-bold text-primary mb-2">When you pick the car up, you'll need:</h5>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Passport or national ID card</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Driving license</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Credit card</span>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Security Deposit */}
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md">
+              <h4 className="text-lg font-bold text-primary mb-4 flex items-center">
+                <i className="fas fa-credit-card text-secondary mr-2"></i>
+                Security Deposit
+              </h4>
+              <p className="text-gray-700 mb-4">
+                At pick-up, the main driver will leave a refundable security deposit of € 700 on their credit card. Cash and debit cards are not accepted.
+              </p>
+              <h5 className="font-bold text-primary mb-2">Accepted cards:</h5>
+              <div className="flex space-x-4 mt-4">
+                <div className="flex items-center">
+                  <i className="fab fa-cc-mastercard text-3xl"></i>
+                  <span className="ml-2">Master Card</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fab fa-cc-visa text-3xl"></i>
+                  <span className="ml-2">Visa Card</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Damage Excess */}
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md">
+              <h4 className="text-lg font-bold text-primary mb-4 flex items-center">
+                <i className="fas fa-car-crash text-secondary mr-2"></i>
+                Damage Excess
+              </h4>
+              <p className="text-gray-700">
+                If the car's bodywork gets damaged, the most you'll pay towards repairs covered by the Collision Damage Waiver is the damage excess (€ 1000). This cover is only valid if you stick to the terms of the rental agreement.
+              </p>
+            </div>
+            
+            {/* Mileage and Fuel */}
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md">
+              <h4 className="text-lg font-bold text-primary mb-4 flex items-center">
+                <i className="fas fa-gas-pump text-secondary mr-2"></i>
+                Mileage & Fuel Policy
+              </h4>
+              <div className="mb-4">
+                <h5 className="font-bold text-primary mb-2 flex items-center">
+                  <i className="fas fa-road text-gray-600 mr-2"></i>
+                  Mileage (Unlimited)
+                </h5>
+                <p className="text-gray-700">
+                  Your rental includes unlimited free kilometres.
+                </p>
+              </div>
+              <div>
+                <h5 className="font-bold text-primary mb-2 flex items-center">
+                  <i className="fas fa-gas-pump text-gray-600 mr-2"></i>
+                  Fuel Policy (Full to Full)
+                </h5>
+                <p className="text-gray-700">
+                  Your vehicle will be supplied with a full tank of fuel. To avoid incurring fuel charges, you will need to return it with the same amount of fuel as it had when you collected it.
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
         
         {/* Vehicle Type Filter */}
@@ -110,25 +206,25 @@ const CarRentals: React.FC<CarRentalsProps> = ({ onRentNow }) => {
             >
               <div className="relative bg-gray-800 overflow-hidden">
                 {/* Feature icons */}
-                <div className="absolute top-0 left-0 z-10 bg-gray-800 bg-opacity-40 p-2 w-1/4 rounded-br-lg">
-                  <div className="text-white mb-1 flex items-center">
-                    <i className="fas fa-snowflake mr-1"></i>
-                    <span className="text-xs">Front AC</span>
+                <div className="absolute top-1 left-1 z-10 bg-gray-800 bg-opacity-25 p-1 w-1/6 rounded-lg shadow-sm">
+                  <div className="text-white mb-0.5 flex items-center">
+                    <i className="fas fa-snowflake mr-1 text-xs"></i>
+                    <span className="text-xs">AC</span>
                   </div>
-                  <div className="text-white mb-1 flex items-center">
-                    <i className="fas fa-users mr-1"></i>
+                  <div className="text-white mb-0.5 flex items-center">
+                    <i className="fas fa-users mr-1 text-xs"></i>
                     <span className="text-xs">{vehicle.passengers}</span>
                   </div>
-                  <div className="text-white mb-1 flex items-center">
-                    <i className="fas fa-suitcase mr-1"></i>
+                  <div className="text-white mb-0.5 flex items-center">
+                    <i className="fas fa-suitcase mr-1 text-xs"></i>
                     <span className="text-xs">{vehicle.luggage}</span>
                   </div>
-                  <div className="text-white mb-1 flex items-center">
-                    <i className="fas fa-gas-pump mr-1"></i>
+                  <div className="text-white mb-0.5 flex items-center">
+                    <i className="fas fa-gas-pump mr-1 text-xs"></i>
                     <span className="text-xs">{vehicle.fuelPolicy}</span>
                   </div>
                   <div className="text-white flex items-center">
-                    <i className="fas fa-road mr-1"></i>
+                    <i className="fas fa-road mr-1 text-xs"></i>
                     <span className="text-xs">{vehicle.mileage}</span>
                   </div>
                 </div>
@@ -185,7 +281,7 @@ const CarRentals: React.FC<CarRentalsProps> = ({ onRentNow }) => {
                       {visibleRates[vehicle.id] ? 'Hide Rates' : 'View Rates'}
                     </button>
                   <button 
-                    onClick={() => onRentNow(vehicle.name)}
+                    onClick={() => handleCarModalOpen(vehicle.name)}
                       className="px-4 py-3 bg-primary hover:bg-dark text-white font-medium rounded-lg transition duration-300 text-sm"
                   >
                     Rent Now
@@ -225,78 +321,10 @@ const CarRentals: React.FC<CarRentalsProps> = ({ onRentNow }) => {
                 className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : 'bg-gray-100 hover:bg-gray-200 text-primary'}`}
               >
                 <i className="fas fa-chevron-right"></i>
-              </button>
-            </div>
+          </button>
+        </div>
           </div>
         )}
-        
-        <div className="mt-12 text-center">
-          <div className="bg-white p-6 rounded-xl shadow-md mb-6 max-w-2xl mx-auto">
-            <h3 className="text-lg font-bold text-primary mb-4">Driver & license requirements</h3>
-            <p className="text-center mb-4 text-sm bg-gray-100 p-3 rounded border border-gray-200">
-              At the car pickup, it is compulsory to hold a temporary Sri Lankan driver permit for self-driving.
-            </p>
-            <h4 className="font-medium mb-2">When you pick the car up, you'll need:</h4>
-            <ul className="text-left text-sm mb-6">
-              <li className="mb-2 flex items-center">
-                <span className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2">✓</span>
-                Passport or national ID card
-              </li>
-              <li className="mb-2 flex items-center">
-                <span className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2">✓</span>
-                Driving license
-              </li>
-              <li className="mb-4 flex items-center">
-                <span className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2">✓</span>
-                Credit card
-              </li>
-            </ul>
-
-            {/* Security deposit section */}
-            <div className="mb-6">
-              <h4 className="font-medium mb-2">Security deposit</h4>
-              <p className="text-sm mb-4">
-                At pick-up, the main driver will leave a refundable security deposit of € 700 on their credit card. Cash and debit cards are not accepted. The counter staff will confirm how much this will be.
-              </p>
-              
-              <h4 className="font-medium mb-2">Accepted cards</h4>
-              <div className="flex gap-4 justify-center mb-4">
-                <div className="text-center">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Master Card" className="h-8 mx-auto mb-1" />
-                  <span className="text-xs">Master Card</span>
-                </div>
-                <div className="text-center">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1280px-Visa_Inc._logo.svg.png" alt="Visa Card" className="h-8 mx-auto mb-1" />
-                  <span className="text-xs">Visa Card</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Damage Excess section */}
-            <div className="mb-4">
-              <h4 className="font-medium mb-2">Damage Excess</h4>
-              <p className="text-sm mb-4">
-                If the car's bodywork gets damaged, the most you'll pay towards repairs covered by the Collision Damage Waiver is the damage excess (€ 1000). This cover is only valid if you stick to the terms of the rental agreement.
-              </p>
-            </div>
-
-            {/* Mileage section */}
-            <div className="mb-4">
-              <h4 className="font-medium mb-2">Mileage (Unlimited)</h4>
-              <p className="text-sm mb-4">
-                Your rental includes unlimited free kilometres.
-              </p>
-            </div>
-
-            {/* Fuel policy section */}
-            <div>
-              <h4 className="font-medium mb-2">Fuel policy (Full to Full)</h4>
-              <p className="text-sm">
-                Your vehicle will be supplied with a full tank of fuel. To avoid incurring fuel charges, you will need to return it with the same amount of fuel as it had when you collected it.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
