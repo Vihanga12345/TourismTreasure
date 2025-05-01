@@ -82,6 +82,13 @@ const MonthlyEvents = () => {
 
   const activeMonth = monthlyData[activeMonthIndex];
 
+  // Group months into rows for mobile layout (3 rows of 4 months each)
+  const monthRows = [
+    monthlyData.slice(0, 4),    // Jan-Apr
+    monthlyData.slice(4, 8),    // May-Aug
+    monthlyData.slice(8, 12),   // Sep-Dec
+  ];
+
   return (
     <section id="monthly-events" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,16 +106,16 @@ const MonthlyEvents = () => {
           </p>
         </motion.div>
         
-        {/* Month Tabs */}
-        <div className="relative mb-8 max-w-5xl mx-auto overflow-x-auto pb-2">
-          <div className="flex justify-center gap-1 min-w-max">
+        {/* Month Tabs - Desktop View - Single Row */}
+        <div className="relative mb-8 max-w-5xl mx-auto hidden md:block">
+          <div className="flex justify-center gap-1">
             {monthlyData.map((month, index) => (
               <button
-                key={month.id}
+                key={`desktop-${month.id}`}
                 onClick={() => handleTabClick(index)}
                 onMouseEnter={handleTabHover}
                 onMouseLeave={handleTabHoverEnd}
-                className={`px-2 py-2 rounded-full text-xs font-medium transition-all duration-300 w-[60px] ${
+                className={`px-2 py-2 rounded-lg text-sm font-medium transition-all duration-300 w-16 ${
                   activeMonthIndex === index
                     ? 'bg-primary text-white shadow-md'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -118,18 +125,46 @@ const MonthlyEvents = () => {
               </button>
             ))}
           </div>
-          
-          {/* Progress bar (only visible during auto-rotation) */}
-          {isAutoRotating && (
-            <div className="mt-4 w-full h-1 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: `${progress}%` }}
-                animate={{ width: `${progress}%` }}
-                className="h-full bg-secondary"
-              />
-            </div>
-          )}
         </div>
+        
+        {/* Month Tabs - Mobile View with 3 rows of 4 months each */}
+        <div className="md:hidden mb-8 max-w-5xl mx-auto">
+          <div className="space-y-2">
+            {monthRows.map((row, rowIndex) => (
+              <div key={`row-${rowIndex}`} className="flex justify-center gap-2">
+                {row.map((month) => (
+                  <button
+                    key={`mobile-${month.id}`}
+                    onClick={() => handleTabClick(month.id - 1)}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium flex-1 transition-all duration-300 ${
+                      activeMonthIndex === month.id - 1
+                        ? 'bg-primary text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
+                    {month.name.substring(0, 3)}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+          
+          {/* Display current month name below the grid */}
+          <p className="text-center text-sm font-medium text-primary mt-2">
+            {activeMonth.name}
+          </p>
+        </div>
+          
+        {/* Progress bar (only visible during auto-rotation) */}
+        {isAutoRotating && (
+          <div className="mt-2 w-full h-1 bg-gray-200 rounded-full overflow-hidden max-w-md mx-auto">
+            <motion.div
+              initial={{ width: `${progress}%` }}
+              animate={{ width: `${progress}%` }}
+              className="h-full bg-secondary"
+            />
+          </div>
+        )}
         
         {/* Month Content */}
         <div className="bg-gray-50 rounded-2xl shadow-xl overflow-hidden">

@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import Destinations from '../components/Destinations';
 import MonthlyEvents from '../components/MonthlyEvents';
 import AboutUs from '../components/AboutUs';
-import Team from '../components/Team';
 import OurCustomers from '../components/OurCustomers';
 
 const HomePage = () => {
@@ -18,7 +17,6 @@ const HomePage = () => {
       <Destinations />
       <MonthlyEvents />
       <AboutUs />
-      <Team />
       <OurCustomers />
     </div>
   );

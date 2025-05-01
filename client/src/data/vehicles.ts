@@ -55,6 +55,20 @@ import microTourerImage from '../assets/Fleet/Micro Tourer.jpeg';
 import toyotaCoasterImage from '../assets/Fleet/Toyota Coaster.jpeg';
 import kingLongImage from '../assets/Fleet/King Long.jpeg';
 
+// Wedding Vehicles
+import benzC200Image from '../assets/Fleet/Benz c200.png';
+import benzC300Image from '../assets/Fleet/Benz C300.png';
+import benzC180Image from '../assets/Fleet/Benz C180.png';
+import benzC220Image from '../assets/Fleet/Benz C220.png';
+import bmw318Image from '../assets/Fleet/BMW 318.jpg';
+import bmwX5Image from '../assets/Fleet/BMW X5.jpeg';
+import bmw530eImage from '../assets/Fleet/BMW 530e.png';
+import audiA3Image from '../assets/Fleet/Audi A3.png';
+import audiA5Image from '../assets/Fleet/Audi A5.jpg';
+import defenderImage from '../assets/Fleet/Defender.png';
+import pradoImage from '../assets/Fleet/Prado.jpeg';
+import toyotaAxioWeddingImage from '../assets/Fleet/Toyota Axio.jpg';
+
 export const vehicles: Vehicle[] = [
   // Mini Cars
   {
@@ -874,6 +888,385 @@ export const vehicles: Vehicle[] = [
     ],
     tag: {
       text: "Luxury Coach",
+      type: "premium"
+    }
+  },
+  // Wedding Vehicles
+  {
+    id: "32",
+    name: "MERCEDES BENZ C200",
+    image: benzC200Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 500,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 500 },
+      { days: "04-06 Days", price: 450 },
+      { days: "07 Days", price: 400 },
+      { days: "08-13 Days", price: 370 },
+      { days: "14 Days", price: 350 },
+      { days: "15 or more Days", price: 330 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "33",
+    name: "MERCEDES BENZ C300",
+    image: benzC300Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 550,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 550 },
+      { days: "04-06 Days", price: 500 },
+      { days: "07 Days", price: 450 },
+      { days: "08-13 Days", price: 425 },
+      { days: "14 Days", price: 400 },
+      { days: "15 or more Days", price: 380 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "34",
+    name: "MERCEDES BENZ C180",
+    image: benzC180Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 480,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 480 },
+      { days: "04-06 Days", price: 440 },
+      { days: "07 Days", price: 400 },
+      { days: "08-13 Days", price: 370 },
+      { days: "14 Days", price: 350 },
+      { days: "15 or more Days", price: 330 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "35",
+    name: "MERCEDES BENZ C220",
+    image: benzC220Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 520,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 520 },
+      { days: "04-06 Days", price: 480 },
+      { days: "07 Days", price: 440 },
+      { days: "08-13 Days", price: 410 },
+      { days: "14 Days", price: 380 },
+      { days: "15 or more Days", price: 360 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "36",
+    name: "BMW 520D",
+    image: bmw520dImage,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 550,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 550 },
+      { days: "04-06 Days", price: 500 },
+      { days: "07 Days", price: 460 },
+      { days: "08-13 Days", price: 420 },
+      { days: "14 Days", price: 400 },
+      { days: "15 or more Days", price: 380 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "37",
+    name: "BMW 530E",
+    image: bmw530eImage,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 580,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 580 },
+      { days: "04-06 Days", price: 530 },
+      { days: "07 Days", price: 490 },
+      { days: "08-13 Days", price: 450 },
+      { days: "14 Days", price: 420 },
+      { days: "15 or more Days", price: 400 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "38",
+    name: "BMW 318",
+    image: bmw318Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 520,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 520 },
+      { days: "04-06 Days", price: 480 },
+      { days: "07 Days", price: 440 },
+      { days: "08-13 Days", price: 410 },
+      { days: "14 Days", price: 380 },
+      { days: "15 or more Days", price: 360 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "39",
+    name: "BMW X5",
+    image: bmwX5Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 650,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 650 },
+      { days: "04-06 Days", price: 600 },
+      { days: "07 Days", price: 550 },
+      { days: "08-13 Days", price: 520 },
+      { days: "14 Days", price: 500 },
+      { days: "15 or more Days", price: 480 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "40",
+    name: "AUDI A3",
+    image: audiA3Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 530,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 530 },
+      { days: "04-06 Days", price: 490 },
+      { days: "07 Days", price: 450 },
+      { days: "08-13 Days", price: 420 },
+      { days: "14 Days", price: 400 },
+      { days: "15 or more Days", price: 380 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "41",
+    name: "AUDI A5",
+    image: audiA5Image,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 580,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 580 },
+      { days: "04-06 Days", price: 540 },
+      { days: "07 Days", price: 500 },
+      { days: "08-13 Days", price: 470 },
+      { days: "14 Days", price: 450 },
+      { days: "15 or more Days", price: 430 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "42",
+    name: "DEFENDER",
+    image: defenderImage,
+    passengers: "07 Max",
+    luggage: "05 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 620,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 620 },
+      { days: "04-06 Days", price: 580 },
+      { days: "07 Days", price: 540 },
+      { days: "08-13 Days", price: 510 },
+      { days: "14 Days", price: 490 },
+      { days: "15 or more Days", price: 470 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "43",
+    name: "PRADO V8",
+    image: pradoImage,
+    passengers: "07 Max",
+    luggage: "05 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 600,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 600 },
+      { days: "04-06 Days", price: 560 },
+      { days: "07 Days", price: 520 },
+      { days: "08-13 Days", price: 490 },
+      { days: "14 Days", price: 470 },
+      { days: "15 or more Days", price: 450 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "44",
+    name: "TOYOTA PRIUS",
+    image: toyotaPriusImage,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 450,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 450 },
+      { days: "04-06 Days", price: 420 },
+      { days: "07 Days", price: 390 },
+      { days: "08-13 Days", price: 370 },
+      { days: "14 Days", price: 350 },
+      { days: "15 or more Days", price: 330 }
+    ],
+    tag: {
+      text: "Wedding Cars",
+      type: "premium"
+    }
+  },
+  {
+    id: "45",
+    name: "TOYOTA AXIO",
+    image: toyotaAxioWeddingImage,
+    passengers: "04 Max",
+    luggage: "04 Max",
+    transmission: "Automatic",
+    hasAC: true,
+    pricePerDay: 430,
+    currency: "€",
+    type: "weddings",
+    mileage: "100 KM per Day",
+    fuelPolicy: "Full to Full",
+    driverOnly: true,
+    rates: [
+      { days: "01-03 Days", price: 430 },
+      { days: "04-06 Days", price: 400 },
+      { days: "07 Days", price: 370 },
+      { days: "08-13 Days", price: 350 },
+      { days: "14 Days", price: 330 },
+      { days: "15 or more Days", price: 310 }
+    ],
+    tag: {
+      text: "Wedding Cars",
       type: "premium"
     }
   }

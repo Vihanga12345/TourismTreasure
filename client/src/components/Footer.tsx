@@ -33,19 +33,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-secondary"></i>
-                <span>123 Temple Road, Colombo 03, Sri Lanka</span>
+                <span>88/3 Main street jaela</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone-alt mt-1 mr-3 text-secondary"></i>
-                <span>+94 11 234 5678</span>
-              </li>
-              <li className="flex items-start">
-                <i className="fas fa-mobile-alt mt-1 mr-3 text-secondary"></i>
-                <span>+94 77 123 4567</span>
+                <span>+94 77 560 2403</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-envelope mt-1 mr-3 text-secondary"></i>
-                <span>info@exclusivetravels.com</span>
+                <span>slexclusivetravels@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-clock mt-1 mr-3 text-secondary"></i>
@@ -59,7 +55,7 @@ const Footer = () => {
             <h4 className="font-bold text-xl mb-4">Check Our Reviews</h4>
             <div className="flex flex-col space-y-3">
               <a 
-                href="https://www.tripadvisor.com/" 
+                href="https://www.tripadvisor.com/Attraction_Review-g293962-d28139382-Reviews-Exclusive_Travel_and_Rent_a_Car-Colombo_Western_Province.html" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center bg-white text-primary px-4 py-3 rounded-md hover:bg-secondary transition-colors"

@@ -182,6 +182,7 @@ const CarRentals = () => {
                 <option value="large-suv">Large SUVs</option>
                 <option value="mini-van">Mini Van</option>
                 <option value="van">Van</option>
+                <option value="weddings">Weddings</option>
                 <option value="luxury-coach">Luxury Coach</option>
               </select>
             </div>
@@ -205,29 +206,31 @@ const CarRentals = () => {
               className="bg-white rounded-xl overflow-hidden card-shadow"
             >
               <div className="relative bg-gray-800 overflow-hidden">
-                {/* Feature icons */}
-                <div className="absolute top-1 left-1 z-10 bg-gray-800 bg-opacity-25 p-1 w-1/6 rounded-lg shadow-sm">
-                  <div className="text-white mb-0.5 flex items-center">
-                    <i className="fas fa-snowflake mr-1 text-xs"></i>
-                    <span className="text-xs">AC</span>
+                {/* Feature icons - hide for wedding cars */}
+                {vehicle.type !== 'weddings' && (
+                  <div className="absolute top-1 left-1 z-10 bg-gray-800 bg-opacity-25 p-1 w-1/6 rounded-lg shadow-sm">
+                    <div className="text-white mb-0.5 flex items-center">
+                      <i className="fas fa-snowflake mr-1 text-xs"></i>
+                      <span className="text-xs">AC</span>
+                    </div>
+                    <div className="text-white mb-0.5 flex items-center">
+                      <i className="fas fa-users mr-1 text-xs"></i>
+                      <span className="text-xs">{vehicle.passengers}</span>
+                    </div>
+                    <div className="text-white mb-0.5 flex items-center">
+                      <i className="fas fa-suitcase mr-1 text-xs"></i>
+                      <span className="text-xs">{vehicle.luggage}</span>
+                    </div>
+                    <div className="text-white mb-0.5 flex items-center">
+                      <i className="fas fa-gas-pump mr-1 text-xs"></i>
+                      <span className="text-xs">{vehicle.fuelPolicy}</span>
+                    </div>
+                    <div className="text-white flex items-center">
+                      <i className="fas fa-road mr-1 text-xs"></i>
+                      <span className="text-xs">{vehicle.mileage}</span>
+                    </div>
                   </div>
-                  <div className="text-white mb-0.5 flex items-center">
-                    <i className="fas fa-users mr-1 text-xs"></i>
-                    <span className="text-xs">{vehicle.passengers}</span>
-                  </div>
-                  <div className="text-white mb-0.5 flex items-center">
-                    <i className="fas fa-suitcase mr-1 text-xs"></i>
-                    <span className="text-xs">{vehicle.luggage}</span>
-                  </div>
-                  <div className="text-white mb-0.5 flex items-center">
-                    <i className="fas fa-gas-pump mr-1 text-xs"></i>
-                    <span className="text-xs">{vehicle.fuelPolicy}</span>
-                  </div>
-                  <div className="text-white flex items-center">
-                    <i className="fas fa-road mr-1 text-xs"></i>
-                    <span className="text-xs">{vehicle.mileage}</span>
-                  </div>
-                </div>
+                )}
                 
                 {/* Car image */}
                 <div className="bg-white h-64 flex items-center justify-center">
