@@ -1,9 +1,33 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 // Import the video directly
 import backgroundVideo from '../assets/Vedios/Vedio.mp4';
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Skip the first 8 seconds of the video when it's loaded
+    if (videoRef.current) {
+      // Add event listener to handle when metadata is loaded
+      videoRef.current.addEventListener('loadedmetadata', () => {
+        // Set the current time to 8 seconds
+        if (videoRef.current) {
+          videoRef.current.currentTime = 8;
+        }
+      });
+
+      // If the video restarts (due to loop), skip to 8 seconds again
+      videoRef.current.addEventListener('seeked', () => {
+        // Only apply this when the video loops back to the beginning
+        if (videoRef.current && videoRef.current.currentTime < 1) {
+          videoRef.current.currentTime = 8;
+        }
+      });
+    }
+  }, []);
+
   return (
     <section 
       id="home" 
@@ -11,6 +35,7 @@ const Hero = () => {
     >
       {/* Video background */}
       <video
+        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src={backgroundVideo}
         autoPlay

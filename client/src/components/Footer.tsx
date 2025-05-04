@@ -55,7 +55,7 @@ const Footer = () => {
             <h4 className="font-bold text-xl mb-4">Check Our Reviews</h4>
             <div className="flex flex-col space-y-3">
               <a 
-                href="https://www.tripadvisor.com/Attraction_Review-g293962-d28139382-Reviews-Exclusive_Travel_and_Rent_a_Car-Colombo_Western_Province.html" 
+                href="https://www.tripadvisor.com/Attraction_Review-g293962-d28139455-Reviews-Exclusive_Travels_and_Rent_a_Car-Colombo_Western_Province.html" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center bg-white text-primary px-4 py-3 rounded-md hover:bg-secondary transition-colors"
