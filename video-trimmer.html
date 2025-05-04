@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Trimmer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        video {
+            width: 100%;
+            max-height: 400px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #003B72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #002E59;
+        }
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video Trimmer</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Click "Choose Video" and select your original video file.</li>
+                <li>The video will load with a start time of 8 seconds (skipping the first 8 seconds).</li>
+                <li>Preview the trimmed video.</li>
+                <li>If satisfied, click "Download Trimmed Video".</li>
+                <li>Replace the original video file in your project.</li>
+            </ol>
+        </div>
+        
+        <input type="file" id="videoFile" accept="video/*">
+        
+        <video id="videoPlayer" controls></video>
+        
+        <button id="downloadBtn" disabled>Download Trimmed Video</button>
+    </div>
+    
+    <script>
+        const videoFile = document.getElementById('videoFile');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        let videoBlob;
+        
+        videoFile.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const videoURL = URL.createObjectURL(file);
+                videoPlayer.src = videoURL;
+                
+                // Set the starting time to 8 seconds (skipping the first 8 seconds)
+                videoPlayer.addEventListener('loadedmetadata', function() {
+                    videoPlayer.currentTime = 8;
+                    
+                    // Create a MediaRecorder to capture the video
+                    const stream = videoPlayer.captureStream();
+                    const mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+                    const chunks = [];
+                    
+                    mediaRecorder.ondataavailable = function(e) {
+                        chunks.push(e.data);
+                    };
+                    
+                    mediaRecorder.onstop = function() {
+                        videoBlob = new Blob(chunks, { type: 'video/mp4' });
+                        downloadBtn.disabled = false;
+                    };
+                    
+                    // Start recording when play is clicked
+                    videoPlayer.onplay = function() {
+                        mediaRecorder.start();
+                    };
+                    
+                    // Stop recording when paused or ended
+                    videoPlayer.onpause = function() {
+                        if (mediaRecorder.state === 'recording') {
+                            mediaRecorder.stop();
+                        }
+                    };
+                    
+                    videoPlayer.onended = function() {
+                        if (mediaRecorder.state === 'recording') {
+                            mediaRecorder.stop();
+                        }
+                    };
+                });
+            }
+        });
+        
+        downloadBtn.addEventListener('click', function() {
+            if (videoBlob) {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(videoBlob);
+                a.download = 'trimmed_video.mp4';
+                a.click();
+            }
+        });
+    </script>
+</body>
+</html> 
